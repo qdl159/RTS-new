@@ -170,6 +170,18 @@ public class UserController {
 		System.out.println(user);
 		return mav;
 	}
+	@RequestMapping(value = "/resetpassword/reset", method = RequestMethod.GET)
+	public ModelAndView resetpassword(String email) {
+		System.out.println(email);
+		ModelAndView mav = new ModelAndView();
+		User user = this.customUserDetailsService.findbyemail(email);
+		mav.setViewName("/hello");
+		user.setEnable(false);
+		mav.addObject("title", "This is reset password page.");
+		MailUtil.sendresetpasswordMail(user);
+		System.out.println(user);
+		return mav;
+	}
 
 	@RequestMapping(value = "/activate/{activation}", method = RequestMethod.GET)
 	public ModelAndView activate(@PathVariable String activation) {
@@ -194,6 +206,7 @@ public class UserController {
 		System.out.println(user);
 		return mav;
 	}
+	
 
 	@RequestMapping(value = "/member/orderData", method = RequestMethod.GET)
 	public @ResponseBody

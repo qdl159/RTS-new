@@ -149,7 +149,6 @@ public class UserController {
 				.getUsername());
 		return mav;
 	}
-
 	@RequestMapping(value = "/register/newuser", method = RequestMethod.POST)
 	public ModelAndView registerPage(@ModelAttribute("user") User user,
 			BindingResult result) {
@@ -170,9 +169,32 @@ public class UserController {
 		System.out.println(user);
 		return mav;
 	}
-
+	
 	@RequestMapping(value = "/activate/{activation}", method = RequestMethod.GET)
 	public ModelAndView activate(@PathVariable String activation) {
+		ModelAndView mav = new ModelAndView();
+
+		User user = this.customUserDetailsService.activeUser(activation);
+		if (user == null) {
+			mav.setViewName("/hello");
+			mav.addObject("title", "Activation code expired!");
+			return mav;
+		}
+		mav.setViewName("/hello");
+		mav.addObject("title", "Congratulations, " + user.getEmail()
+				+ "! Successfully activated!");
+		user.setEnable(true);
+		user.geneateActivationCode();
+		while (this.customUserDetailsService.checkActivationCode(user
+				.getActivation()) > 0) {
+			user.geneateActivationCode();
+		}
+		this.customUserDetailsService.updateUser(user);
+		System.out.println(user);
+		return mav;
+	}
+	@RequestMapping(value = "/resetpassword/{activation}", method = {RequestMethod.POST,RequestMethod.GET})
+	public ModelAndView resetpassword(@PathVariable String activation) {
 		ModelAndView mav = new ModelAndView();
 
 		User user = this.customUserDetailsService.activeUser(activation);

@@ -72,9 +72,10 @@
 	           <a href="https://www.facebook.com/" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in using Facebook</a> 
 	           <a href="https://myaccount.google.com/" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign in using Google+</a> 
 		</div>
+		<div>
 		Forgot your password?
-		<a href="#forgotPassword" class="">Reset it</a>
-		
+		<a href="forgotpassword" class="text-center">Reset it</a>
+		</div>
 		<div>
 	    Don't have an account?
         <a href="register.html" class="text-center">Create one</a>

@@ -47,7 +47,7 @@ public class PersonDaoImpl implements PersonDao {
 */
 
 		
-		System.out.println(1);
+		System.out.println(1+email);
 		String hql = "from User u where u.email=:email";
 		
 		List <User> list = template.findByNamedParam(hql,"email",email);

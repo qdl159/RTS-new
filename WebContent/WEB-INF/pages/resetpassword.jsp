@@ -40,19 +40,23 @@
   <header id="top" class="header">
     <div class="login-box">
       <div class="login-logo">
-      <a href="/MyRTS/main.html" style="color: #3c8dbc"><b>Reset Your Password</b></a>
+      <a href="/MyRTS/main.html" style="color: #3c8dbc"><b>RailwayTicketingSystem</b></a>
       </div><!-- /.login-logo -->
+      <div id="forgot-password">
+      	<p>Can't remember your password? Enter you e-mail address and we'll send you a code to reset your password.</p>
+      </div>
       <div class="login-box-body">
         <!-- <p class="login-box-msg">Sign in to start your session</p> -->
-        <form name="f" action="<c:url value='j_spring_security_check'/>" method="post" id="login-form">
+        <form name="f" action="<c:url value='resetpassword/reset'/>" method="get" id="login-form">
           <div class="form-group has-feedback">
-            <input type="username" name="j_username" id="j_username" class="form-control" placeholder="E-mail Address">
+            <input type="username" name="email" id="j_username" class="form-control" placeholder="E-mail Address">
             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
           </div>
           <div class="row">
             <div class="col-xs-4">
-              <button type="submit" id="signin" class="btn btn-primary btn-block btn-flat">Reset</button>
-            </div><!-- /.col -->
+              <button type="submit" id="reset" class="btn btn-primary btn-block btn-flat">Reset</button>
+            </div><!-- /.col -->        
+            <a href="/MyRTS/login.html">Cancel</a>
           </div>
         </form>
 		
@@ -75,5 +79,11 @@
         });	
       });
     </script> -->
+    <style>
+    	#forgot-password{
+    		font-size:15px;
+    		color: #f2f2f2;
+    	}	
+    </style>
   </body>
 </html>

@@ -5,7 +5,7 @@
 <html >
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-    <title>RailwayTicketingSystem | Log in</title>
+    <title>RailwayTicketingSystem | ResetPassword</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.5 -->
@@ -40,7 +40,7 @@
   <header id="top" class="header">
     <div class="login-box">
       <div class="login-logo">
-      <a href="/MyRTS/main.html" style="color: #3c8dbc"><b>Railway Ticketing System</b></a>
+      <a href="/MyRTS/main.html" style="color: #3c8dbc"><b>Reset Your Password</b></a>
       </div><!-- /.login-logo -->
       <div class="login-box-body">
         <!-- <p class="login-box-msg">Sign in to start your session</p> -->
@@ -49,47 +49,24 @@
             <input type="username" name="j_username" id="j_username" class="form-control" placeholder="E-mail Address">
             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
           </div>
-          <div class="form-group has-feedback">
-            <input type="password" name="j_password" id="j_password"  class="form-control" placeholder="Password">
-            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-          </div>
           <div class="row">
-            <div class="col-xs-8">
-              <div class="checkbox icheck">
-                <label>
-                  <input type="checkbox"> Remember Me
-                </label>
-              </div>
-            </div><!-- /.col -->
             <div class="col-xs-4">
-              <button type="submit" id="signin" class="btn btn-primary btn-block btn-flat">Sign In</button>
+              <button type="submit" id="signin" class="btn btn-primary btn-block btn-flat">Reset</button>
             </div><!-- /.col -->
           </div>
         </form>
-
-		<div class="social-auth-links text-center">
-	           <p>- OR -</p>
-	           <a href="https://www.facebook.com/" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in using Facebook</a> 
-	           <a href="https://myaccount.google.com/" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign in using Google+</a> 
-		</div>
-		Forgot your password?
-		<a href="resetpassword.html" class="">Reset it</a>
-		
-		<div>
-	    Don't have an account?
-        <a href="register.html" class="text-center">Create one</a>
 		
 		
       </div><!-- /.login-box-body -->
     </div><!-- /.login-box -->
-</header>
+	</header>
     <!-- jQuery 2.1.4 -->
     <script src="<c:url value="/resource/plugins/jQuery/jQuery-2.1.4.min.js"/>"></script>
     <!-- Bootstrap 3.3.5 -->
     <script src="<c:url value="/resource/js/bootstrap/js/bootstrap.min.js"/>"></script>
     <!-- iCheck -->
     <script src="<c:url value="/resource/plugins/iCheck/icheck.min.js"/>"></script>
-    <script>
+<!--     <script>
       $(function () {
         $('input').iCheck({
           checkboxClass: 'icheckbox_square-blue',
@@ -97,6 +74,6 @@
           increaseArea: '20%' // optional
         });	
       });
-    </script>
+    </script> -->
   </body>
 </html>

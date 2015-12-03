@@ -80,6 +80,11 @@ public class RTSController {
 	public String hello(HttpServletRequest request, ModelMap model) {
 		 return "hello";
 	}
+	
+	@RequestMapping(value = "/resetpassword", method = {RequestMethod.GET})
+	public String resetpassword(ModelMap model) {
+		return "resetpassword";
+	}
 
 	@RequestMapping(value = "/main", method = RequestMethod.GET)
 	public ModelAndView mainPage() {

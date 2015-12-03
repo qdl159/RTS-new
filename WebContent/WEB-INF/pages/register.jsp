@@ -69,7 +69,7 @@
 <body class="hold-transition register-page body-class">
 	<div class="register-box">
 		<div class="register-logo">
-			<a href="/MyRTS/main.html"><b>Railway Ticketing System</b></a>
+			<a href="/MyRTS/main.html" style="color:#3c8dbc"><b>Railway Ticketing System</b></a>
 		</div>
 
 		<div class="register-box-body">

@@ -47,7 +47,7 @@
       </div>
       <div class="login-box-body">
         <!-- <p class="login-box-msg">Sign in to start your session</p> -->
-        <form name="f" action="<c:url value='j_spring_security_check'/>" method="post" id="login-form">
+        <form name="resetpassword" action="<c:url value='j_spring_security_check'/>" method="post" id="login-form">
           <div class="form-group has-feedback">
             <input type="username" name="j_username" id="j_username" class="form-control" placeholder="E-mail Address">
             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>

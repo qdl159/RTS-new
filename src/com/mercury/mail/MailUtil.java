@@ -94,7 +94,7 @@ public class MailUtil {
 			activation.setText("Please click the following link to reset your password:");
 			
 			BodyPart link = new MimeBodyPart();
-			link.setText("http://localhost:8080/MyRTS/register.html/");
+			link.setText("http://localhost:8080/MyRTS/register.html");
 			
 		
 			

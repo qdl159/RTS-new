@@ -11,5 +11,6 @@
 <h1><font color="blue">${title}</font></h1>
 <a href="<c:url value='/login.html'/>">Login</a>
 <a href="<c:url value='/register.html'/>">Register</a>
+<a href="<c:url value='/resetpassword.html'/>">Resetpassword</a>
 </body>
 </html>

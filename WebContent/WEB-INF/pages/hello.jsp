@@ -44,7 +44,7 @@
 		    <div class="container">
 		    <div class="row">
 		      <div class="col-sm-6">
-		        <h1><a href="#" title="Bootstrap Template">MyRTS </a>
+		        <h1><a href="#" title="Bootstrap Template">RTS </a>
 		          <p class="lead">Railway Ticketing System</p></h1>
 		      </div>
 		      <div class="col-sm-6">

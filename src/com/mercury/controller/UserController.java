@@ -149,7 +149,6 @@ public class UserController {
 				.getUsername());
 		return mav;
 	}
-
 	@RequestMapping(value = "/register/newuser", method = RequestMethod.POST)
 	public ModelAndView registerPage(@ModelAttribute("user") User user,
 			BindingResult result) {
@@ -170,6 +169,7 @@ public class UserController {
 		System.out.println(user);
 		return mav;
 	}
+
 	@RequestMapping(value = "/resetpassword/reset", method = RequestMethod.GET)
 	public ModelAndView resetpassword(String email) {
 		System.out.println(email);
@@ -178,10 +178,11 @@ public class UserController {
 		mav.setViewName("/hello");
 		user.setEnable(false);
 		mav.addObject("title", "This is reset password page.");
-		MailUtil.sendresetpasswordMail(user);
+		MailUtil.sendpasswordresetMail(user);
 		System.out.println(user);
 		return mav;
 	}
+
 
 	@RequestMapping(value = "/activate/{activation}", method = RequestMethod.GET)
 	public ModelAndView activate(@PathVariable String activation) {
@@ -206,7 +207,7 @@ public class UserController {
 		System.out.println(user);
 		return mav;
 	}
-	
+
 
 	@RequestMapping(value = "/member/orderData", method = RequestMethod.GET)
 	public @ResponseBody

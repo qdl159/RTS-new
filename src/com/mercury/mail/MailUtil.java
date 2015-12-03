@@ -60,7 +60,8 @@ public class MailUtil {
 			System.out.println(e);
 		}
 	}
-	public static void sendresetpasswordMail(User user){
+
+	public static void sendpasswordresetMail(User user){
 		final String SSL_FACTORY = "javax.net.ssl.SSLSocketFactory";
 		Properties prop = System.getProperties();
 		prop.setProperty("mail.smtp.host", "smtp.gmail.com");

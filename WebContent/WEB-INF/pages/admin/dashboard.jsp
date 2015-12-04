@@ -6,7 +6,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RailwayTicketingSystem || Admin</title>
+    <title>RailwayTicketingSystem || DashBoard</title>
 
     <link rel="stylesheet" type="text/css" href="<c:url value="/resource/newSource/bootstrap/css/bootstrap.min.css"/>">
     <link rel="stylesheet" type="text/css" href="<c:url value="/resource/newSource/font-awesome/css/font-awesome.min.css" />">
@@ -19,6 +19,13 @@
     <link rel="stylesheet" type="text/css" href="http://www.shieldui.com/shared/components/latest/css/light-bootstrap/all.min.css" />
     <script type="text/javascript" src="http://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
     <script type="text/javascript" src="http://www.prepbootstrap.com/Content/js/gridData.js"></script>
+   	<style>
+    	.text-right {
+    		float: none;
+   		    margin: auto;
+    		text-align: center;
+    	}
+    </style>
 </head>
 <body>
     <div id="wrapper">
@@ -30,17 +37,16 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="dashboard.html">Admin Panel</a>
+                <a class="navbar-brand" href="dashboard.html">Administrator Page</a>
             </div>
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
-                    <li class="active"><a href="dashboard.html	"><i class="fa fa-bullseye"></i> Dashboard</a></li>
-                    <li><a href="order.html"><i class="fa fa-tasks"></i> order</a></li>                    
-                    <li><a href="blog.html"><i class="fa fa-globe"></i> Blog</a></li>
-                    <li><a href="forms.html"><i class="fa fa-list-ol"></i> Forms</a></li>
-                    <li><a href="typography.html"><i class="fa fa-font"></i> Typography</a></li>
-                    <li><a href="bootstrap-elements.html"><i class="fa fa-list-ul"></i> Bootstrap Elements</a></li>
-                    <li><a href="bootstrap-grid.html"><i class="fa fa-table"></i > Bootstrap Grid</a></li>                    
+                    <li class="active"><a href="dashboard.html"><i class="fa fa-bullseye"></i> Dashboard</a></li>
+                    <li><a href="order.html"><i class="fa fa-tasks"></i> Order</a></li>                    
+                    <li><a href="train.html"><i class="fa fa-globe"></i> Train</a></li>
+                    <li><a href="schedule.html"><i class="fa fa-list-ol"></i> Schedule</a></li>
+                    <li><a href="station.html"><i class="fa fa-font"></i> Station</a></li> 
+                    <li><a href="userTable.html"><i class="fa fa-list-ul"></i> UserTable</a></li>                   
                 </ul>
                 <ul class="nav navbar-nav navbar-right navbar-user">
                     <li class="dropdown messages-dropdown">
@@ -65,12 +71,11 @@
                         </ul>
                     </li>
                     <li class="dropdown user-dropdown">
-                       <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Steve Miller<b class="caret"></b></a>
+                       <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Administrator<b class="caret"></b></a>
                        <ul class="dropdown-menu">
                            <li><a href="#"><i class="fa fa-user"></i> Profile</a></li>
-                           <li><a href="#"><i class="fa fa-gear"></i> Settings</a></li>
                            <li class="divider"></li>
-                           <li><a href="#"><i class="fa fa-power-off"></i> Log Out</a></li>
+                           <li><a href="/MyRTS/j_spring_security_logout"><i class="fa fa-power-off"></i> Log Out</a></li>
                        </ul>
                    </li>
                 </ul>
@@ -80,13 +85,11 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1>Dashboard <small>Dashboard Home</small></h1>
+                    <h1>Administrator Home Page <small>DashBoard </small></h1>
                     <div class="alert alert-success alert-dismissable">
                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                        Welcome to the admin dashboard! Feel free to review all pages and modify the layout to your needs. 
+                        Welcome to RailwayTicketingSystem  administrator dashboard! 
                         <br />
-                        This theme uses the <a href="https://www.shieldui.com">ShieldUI</a> JavaScript library for the 
-                        additional data visualization and presentation functionality illustrated here.
                     </div>
                 </div>
             </div>
@@ -94,70 +97,60 @@
                 <div class="col-lg-3">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
-                            <h3 class="panel-title"><i class="fa fa-clock-o"></i>Alerts</h3>
+                            <h3 class="panel-title"><i class="fa fa-clock-o"></i>Informations</h3>
                         </div>
                         <div class="panel-body">
                             <div class="row alert-success">
-                                <div class="col-xs-5">
-                                    <i class="fa fa-thumbs-o-up fa-5x"></i>
-                                </div>
                                 <div class="col-xs-5 text-right">
                                     <p class="alerts-heading">343</p>
                                     <p class="alerts-text">New Orders</p>
                                 </div>
                             </div>
                             <div class="row alert-success">
-                                <div class="col-xs-5">
-                                    <i class="fa fa-thumbs-o-up fa-5x"></i>
-                                </div>
                                 <div class="col-xs-5 text-right">
                                     <p class="alerts-heading">1256</p>
-                                    <p class="alerts-text">Registrations</p>
+                                    <p class="alerts-text">Trains</p>
                                 </div>
                             </div>
-                            <div class="row alert-danger">
-                                <div class="col-xs-5">
-                                    <i class="fa fa-thumbs-o-down fa-5x"></i>
-                                </div>
+
+                            <div class="row alert-success">
                                 <div class="col-xs-5 text-right">
-                                    <p class="alerts-heading">4</p>
-                                    <p class="alerts-text">Errors</p>
+                                    <p class="alerts-heading">11</p>
+                                    <p class="alerts-text">Stations</p>
                                 </div>
                             </div>
                             <div class="row alert-success">
-                                <div class="col-xs-5">
-                                    <i class="fa fa-thumbs-o-up fa-5x"></i>
-                                </div>
                                 <div class="col-xs-5 text-right">
                                     <p class="alerts-heading">11</p>
-                                    <p class="alerts-text">Mentions</p>
+                                    <p class="alerts-text">TotalUsers</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-9">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i> Traffic Estimations for last 30 days</h3>
-                        </div>
-                        <div class="panel-body">
-                            <div id="shieldui-chart1"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
                 <div class="col-lg-4">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
-                            <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i> Logins per week</h3>
+                            <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i>Users Activation Rate</h3>
                         </div>
                         <div class="panel-body">
                             <div id="shieldui-chart2"></div>
                         </div>
                     </div>
                 </div>
+	               <!--  <div class="col-lg-9">
+	                    <div class="panel panel-primary">
+	                        <div class="panel-heading">
+	                            <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i> Traffic Estimations for last 30 days</h3>
+	                        </div>
+	                        <div class="panel-body">
+	                            <div id="shieldui-chart1"></div>
+	                        </div>
+	                    </div>
+	                </div> -->
+            </div>
+          <!--   <div class="row">
+             
                 <div class="col-lg-4">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
@@ -178,12 +171,12 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <div class="row">
                 <div class="col-lg-12">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
-                            <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i> Sales personnel Data</h3>
+                            <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i>Total Orders</h3>
                         </div>
                         <div class="panel-body">
                             <div id="shieldui-grid1"></div>
@@ -207,6 +200,16 @@
     -->
     <script type="text/javascript">
         jQuery(function ($) {
+        	var orderData = [];
+        	$.ajax({
+				url: "/MyRTS/admin/orderData",
+				type: "get",
+				dataType: "json",
+				async: false,
+				success: function(data) {
+					orderData = data;
+				}
+			});
             var performance = [12, 43, 34, 22, 12, 33, 4, 17, 22, 34, 54, 67],
                 visits = [123, 323, 443, 32],
                 budget = [23, 19, 11, 134, 242, 352, 435, 22, 637, 445, 555, 57],
@@ -268,10 +271,10 @@
                     data: sales
                 }]
             });
-
+			
             $("#shieldui-grid1").shieldGrid({
                 dataSource: {
-                    data: gridData
+                    data: orderData
                 },
                 sorting: {
                     multiple: true
@@ -286,13 +289,17 @@
                     toggle: false
                 },
                 columns: [
-                    { field: "id", width: "70px", title: "ID" },
-                    { field: "name", title: "Person Name" },
-                    { field: "company", title: "Company Name" },
-                    { field: "email", title: "Email Address", width: "270px" }
+                    { field: "orderNo", title: "OrderNumber" },
+                    { field: "user.email", title: "Email" },
+                    { field: "user.userId", title: "UserID"},
+            		{ field: "date", title: "OrderDate" },
+                    { field: "creditCardNo", title: "CreditCardNumber"},
+                    { field: "status", title: "OrderStatus"} 
                 ]
             });
         });
     </script>
+    
+    
 </body>
 </html>

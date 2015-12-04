@@ -55,7 +55,7 @@
 	<header id="top" class="header">
 	<div class="login-box">
 		<div class="login-logo">
-			<a href="/MyRTS/main.html" style="color: #3c8dbc"><b>Railway
+			<a href="/MyRTS/main1.html" style="color: #3c8dbc"><b>Railway
 					Ticketing System</b></a>
 		</div>
 		<!-- /.login-logo -->

@@ -47,7 +47,9 @@
       </div>
       <div class="login-box-body">
         <!-- <p class="login-box-msg">Sign in to start your session</p> -->
+
         <form name="f" action="<c:url value='resetpassword/reset'/>" method="get" id="login-form">
+
           <div class="form-group has-feedback">
             <input type="username" name="email" id="j_username" class="form-control" placeholder="E-mail Address">
             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>

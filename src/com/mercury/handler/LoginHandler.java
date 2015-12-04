@@ -42,6 +42,7 @@ public class LoginHandler extends SavedRequestAwareAuthenticationSuccessHandler 
 					&&	!redirectUrl.contains("/MyRTS/login")
 					&&	!redirectUrl.contains("/MyRTS/register")
 					&&	!redirectUrl.contains("/MyRTS/activate")
+					&&	!redirectUrl.contains("/MyRTS/main1")
 				){
 				
 				// we do not forget to clean this attribute from session
@@ -51,7 +52,9 @@ public class LoginHandler extends SavedRequestAwareAuthenticationSuccessHandler 
 						redirectUrl);
 			} else {
 				if (roles.contains("ROLE_ADMIN")) {
+					//System.out.println("Basepath1: " + basePath);
 					response.sendRedirect(basePath + "admin/dashboard.html");
+					
 				} else if (roles.contains("ROLE_USER")) {
 					response.sendRedirect(basePath + "member/dashboard.html");
 				}
@@ -60,6 +63,7 @@ public class LoginHandler extends SavedRequestAwareAuthenticationSuccessHandler 
 			}
 		} else {
 			if (roles.contains("ROLE_ADMIN")) {
+				//System.out.println("Basepath2: " + basePath);
 				response.sendRedirect(basePath + "admin/dashboard.html");
 			} else if (roles.contains("ROLE_USER")) {
 				response.sendRedirect(basePath + "member/dashboard.html");

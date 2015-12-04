@@ -2,268 +2,218 @@
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<html>
-<title>User Table</title>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<script src="<c:url value="/resource/jquery-1.11.3.js"/>"></script>
-<title>Order Page</title>
-<!-- Bootstrap 3.3.5 -->
-<link rel="stylesheet"
-	href="<c:url value="/resource/js/bootstrap/css/bootstrap.min.css"/>">
-<!-- Font Awesome -->
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-<!-- Ionicons -->
-<link rel="stylesheet"
-	href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-<!-- Theme style -->
-<link rel="stylesheet"
-	href="<c:url value="/resource/dist/css/AdminLTE.min.css"/>">
-<!-- iCheck -->
-<link rel="stylesheet"
-	href="<c:url value="/resource/plugins/iCheck/square/blue.css"/>">
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RailwayTicketingSystem || UserTable</title>
+    
+    <link rel="stylesheet" type="text/css" href="<c:url value="/resource/newSource/bootstrap/css/bootstrap.min.css"/>">
+    <link rel="stylesheet" type="text/css" href="<c:url value="/resource/newSource/font-awesome/css/font-awesome.min.css" />">
+    <link rel="stylesheet" type="text/css" href="<c:url value="/resource/newSource/css/local.css" />">
 
-<!-- AdminLTE Skins. Choose a skin from the css/skins
-         folder instead of downloading all of them to reduce the load. -->
-<link rel="stylesheet"
-	href="<c:url value="/resource/dist/css/skins/_all-skins.min.css"/>">
-<!-- DataTables -->
-<link rel="stylesheet"
-	href="<c:url value="/resource/plugins/datatables/dataTables.bootstrap.css"/>">
+    <script type="text/javascript" src="<c:url value="/resource/newSource/js/jquery-1.10.2.min.js"/>"></script>
+    <script type="text/javascript" src="<c:url value="/resource/newSource/bootstrap/js/bootstrap.min.js"/>"></script>
 
+<!--     <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/local.css" />
 
+    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script> -->
 </head>
+<body>
+<div id="wrapper">
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="dashboard.html">Administrator Page</a>
+            </div>
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+           <!--          <li><a href="index.html"><i class="fa fa-bullseye"></i> Dashboard</a></li>
+                    <li><a href="portfolio.html"><i class="fa fa-tasks"></i> Portfolio</a></li>
+                    <li><a href="blog.html"><i class="fa fa-globe"></i> Blog</a></li>
+                    <li><a href="forms.html"><i class="fa fa-list-ol"></i> Forms</a></li>
+                    <li  class="active"><a href="typography.html"><i class="fa fa-font"></i> Typography</a></li>
+                    <li><a href="bootstrap-elements.html"><i class="fa fa-list-ul"></i> Bootstrap Elements</a></li>
+                    <li><a href="bootstrap-grid.html"><i class="fa fa-table"></i> Bootstrap Grid</a></li> -->
+                    <li><a href="dashboard.html"><i class="fa fa-bullseye"></i> Dashboard</a></li>
+                    <li><a href="order.html"><i class="fa fa-tasks"></i> Order</a></li>                    
+                    <li><a href="train.html"><i class="fa fa-globe"></i> Train</a></li>
+                    <li><a href="schedule.html"><i class="fa fa-list-ol"></i> Schedule</a></li>
+                    <li><a href="station.html"><i class="fa fa-font"></i> Station</a></li> 
+                    <li class="active"><a href="userTable.html"><i class="fa fa-list-ul"></i> UserTable</a></li>  
+                </ul>
+                <ul class="nav navbar-nav navbar-right navbar-user">
+                    <li class="dropdown messages-dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> Messages <span class="badge">2</span> <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-header">2 New Messages</li>
+                            <li class="message-preview">
+                                <a href="#">
+                                    <span class="avatar"><i class="fa fa-bell"></i></span>
+                                    <span class="message">Security alert</span>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li class="message-preview">
+                                <a href="#">
+                                    <span class="avatar"><i class="fa fa-bell"></i></span>
+                                    <span class="message">Security alert</span>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li><a href="#">Go to Inbox <span class="badge">2</span></a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown user-dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Administrator<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#"><i class="fa fa-user"></i> Profile</a></li>
+                            <li><a href="#"><i class="fa fa-gear"></i> Settings</a></li>
+                            <li class="divider"></li>
+                            <li><a href="/MyRTS/j_spring_security_logout"><i class="fa fa-power-off"></i> Log Out</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+       <div id="page-wrapper">
 
+        <div class="row">
+          <div class="col-lg-12">
+            <h1>Typograhy <small>Text and Headers</small></h1>       
+          </div>
+          <div class="col-lg-4">
+            <h1>Heading 1 <small>Sub-heading</small></h1>
+            <h2>Heading 2 <small>Sub-heading</small></h2>
+            <h3>Heading 3 <small>Sub-heading</small></h3>
+            <h4>Heading 4 <small>Sub-heading</small></h4>
+            <h5>Heading 5 <small>Sub-heading</small></h5>
+            <h6>Heading 6 <small>Sub-heading</small></h6>
+          </div>
+          <div class="col-lg-4">
+            <h1>Example Body Copy Text</h1>
+            <p class="lead">This is an example of lead body copy.</p>
+            <p>This is an example of standard paragraph text. This is an example of <a href="#">link anchor text</a> within body copy.</p>
+            <p><small>This is an example of small, fine print text.</small></p>
+            <p><strong>This is an example of strong, bold text.</strong></p>
+            <p><em>This is an example of emphasized, italic text.</em></p>
+            <h1>Alignment Classes</h1>
+            <p class="text-left">Left aligned text.</p>
+            <p class="text-center">Center aligned text.</p>
+            <p class="text-right">Right aligned text.</p>
+          </div>
+          <div class="col-lg-4">
+            <h1>Emphasis Classes</h1>
+            <p class="text-muted">This is an example of muted text.</p>
+            <p class="text-primary">This is an example of primary text.</p>
+            <p class="text-success">This is an example of success text.</p>
+            <p class="text-info">This is an example of info text.</p>
+            <p class="text-warning">This is an example of warning text.</p>
+            <p class="text-danger">This is an example of danger text.</p>            
+          </div>
+        </div><!-- /.row -->
 
-<!-- ADD THE CLASS layout-top-nav TO REMOVE THE SIDEBAR. -->
-<body class="hold-transition skin-blue sidebar-collapse sidebar-mini">
-	<div class="wrapper">
-		<header class="main-header">
-			<nav class="navbar navbar-static-top" role="navigation">
-				<div class="container">
-					<!-- Sidebar toggle button-->
-					<a href="#" class="sidebar-toggle" data-toggle="offcanvas"
-						role="button"> <span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
-					</a>
-					<div class="navbar-header">
-						<a href="/MyRTS/main.html" class="navbar-brand"><b>Railway</b>SYSTEM</a>
-						<button type="button" class="navbar-toggle collapsed"
-							data-toggle="collapse" data-target="#navbar-collapse">
-							<i class="fa fa-bars"></i>
-						</button>
-					</div>
-					<!-- Collect the nav links, forms, and other content for toggling -->
-					<div class="collapse navbar-collapse pull-left"
-						id="navbar-collapse">
-						<ul class="nav navbar-nav">
-							<li class="active"><a
-								href="<c:url value='/admin/dashboard.html'/>">Dashboard<span
-									class="sr-only">(current)</span></a></li>
-							<li><a href="#">Link</a></li>
-							<li class="dropdown"><a href="#" class="dropdown-toggle"
-								data-toggle="dropdown">Dropdown <span class="caret"></span></a>
-								<ul class="dropdown-menu" role="menu">
-									<li><a href="#">User Information</a></li>
-									<li><a href="<c:url value='/admin/schedule.html'/>">Schedule</a></li>
-									<li><a href="<c:url value='/admin/order.html'/>">Order</a></li>
-									<li class="divider"></li>
-									<li><a href="<c:url value='/admin/station.html'/>">Station</a></li>
-									<li class="divider"></li>
-									<li><a href="<c:url value='/admin/train.html'/>">Train</a></li>
-								</ul></li>
-						</ul>
-					</div>
-					<div class="navbar-custom-menu">
-						<ul class="nav navbar-nav">
-							<!-- Messages: style can be found in dropdown.less-->
-							<li class="dropdown messages-menu">
-								<!-- Menu toggle button -->
-							</li>
-							<li class="dropdown user user-menu">
-								<!-- Menu Toggle Button --> <a href="#" class="dropdown-toggle"
-								data-toggle="dropdown"> <!-- The user image in the navbar-->
-									<img
-									src="<c:url value="/resource/dist/img/user2-160x160.jpg"/>"
-									class="user-image" alt="User Image"> <!-- hidden-xs hides the username on small devices so only the image appears. -->
-									<span class="hidden-xs">Admin</span>
-							</a>
-								<ul class="dropdown-menu">
-									<!-- The user image in the menu -->
-									<li class="user-header"><img
-										src="<c:url value="/resource/dist/img/user2-160x160.jpg"/>"
-										class="img-circle" alt="User Image">
-										<p>
-											Admin - Web Developer <small>Member since Oct. 2015</small>
-										</p></li>
-									<!-- Menu Body -->
-									<!-- Menu Footer-->
-									<li class="user-footer">
-										<div class="pull-left">
-											<a href="#" class="btn btn-default btn-flat">Profile</a>
-										</div>
-										<div class="pull-right">
-											<a href="<c:url value='/j_spring_security_logout'/>"
-												class="btn btn-default btn-flat">Sign out</a>
-										</div>
-									</li>
-								</ul>
-							</li>
-						</ul>
-					</div>
-					<!-- /.navbar-custom-menu -->
-				</div>
-			</nav>
-		</header>
+        <div class="row">
+          <div class="col-lg-4">
+            <h1>Abbreviations</h1>
+            <p>The abbreviation of the word attribute is <abbr title="attribute">attr</abbr>.</p>
+            <p><abbr title="HyperText Markup Language" class="initialism">HTML</abbr> is an abbreviation for a programming language.</p>
+            <h1>Addresses</h1>
+            <address>
+              <strong>Twitter, Inc.</strong><br>
+              795 Folsom Ave, Suite 600<br>
+              San Francisco, CA 94107<br>
+              <abbr title="Phone">P:</abbr> (123) 456-7890
+            </address>
 
-		<aside class="main-sidebar">
-			<!-- sidebar: style can be found in sidebar.less -->
-			<section class="sidebar">
-				<!-- Sidebar user panel -->
-				<div class="user-panel">
-					<div class="pull-left image">
-						<img src="/MyRTS/resource/dist/img/user2-160x160.jpg"
-							class="img-circle" alt="User Image">
-					</div>
-					<div class="pull-left info">
-						<p>Admin</p>
-						<a href="#"><i class="fa fa-circle text-success"></i> Online</a>
-					</div>
-				</div>
-				<!-- search form -->
-				<form action="#" method="get" class="sidebar-form">
-					<div class="input-group">
-						<input type="text" name="q" class="form-control"
-							placeholder="Search..."> <span class="input-group-btn">
-							<button type="submit" name="search" id="search-btn"
-								class="btn btn-flat">
-								<i class="fa fa-search"></i>
-							</button>
-						</span>
-					</div>
-				</form>
-				<!-- /.search form -->
-				<!-- sidebar menu: : style can be found in sidebar.less -->
-				<ul class="sidebar-menu">
-					<li class="header">MAIN NAVIGATION</li>
-					<li class="treeview"><a href="#"> <i
-							class="fa fa-dashboard"></i> <span>Dashboard</span> <i
-							class="fa fa-angle-left pull-right"></i>
-					</a>
-						<ul class="treeview-menu">
-							<li><a href="/MyRTS/admin/dashboard.html"><i
-									class="fa fa-circle-o"></i> Dashboard</a></li>
-						</ul></li>
-					<li class="treeview"><a href="/MyRTS/admin/order.html"> <i
-							class="fa fa-calendar-minus-o"></i> <span>Order</span> <i
-							class="fa fa-angle-left pull-right"></i>
-					</a></li>
+            <address>
+              <strong>Full Name</strong><br>
+              <a href="mailto:#">first.last@example.com</a>
+            </address>            
+          </div>
+          <div class="col-lg-4">
+            <h1>Blockquotes</h1>
+            <h2>Default Blockquote</h2>
+            <blockquote>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+            </blockquote>
+            <h2>Blockquote with Citation</h2> 
+            <blockquote>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+              <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
+            </blockquote>
+            <h2>Right Aligned Blockquote</h2> 
+            <blockquote class="pull-right">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+            </blockquote>
+          </div>
+          <div class="col-lg-4">
+            <h1>Lists</h1>
+            <h2>Unordered List</h2>
+            <ul>
+              <li>List Item</li>
+              <li>List Item</li>
+                <ul>
+                  <li>List Item</li>
+                  <li>List Item</li>
+                  <li>List Item</li>
+                </ul>
+              <li>List Item</li>
+            </ul>
+            <h2>Ordered List</h2>
+            <ol>
+              <li>List Item</li>
+              <li>List Item</li>
+              <li>List Item</li>
+            </ol>
+            <h2>Unstyled List</h2>
+            <ul class="list-unstyled">
+              <li>List Item</li>
+              <li>List Item</li>
+              <li>List Item</li>
+            </ul>
+            <h2>Inline List</h2>
+            <ul class="list-inline">
+              <li>List Item</li>
+              <li>List Item</li>
+              <li>List Item</li>
+            </ul>
+          </div>
+        </div><!-- /.row -->
 
-					<li class="treeview"><a href="/MyRTS/admin/train.html"> <i
-							class="fa fa-train"></i> <span>Train</span> <i
-							class="fa fa-angle-left pull-right"></i>
-					</a></li>
-					<li class="treeview"><a href="/MyRTS/admin/schedule.html">
-							<i class="fa fa-edit"></i> <span>Schedule</span> <i
-							class="fa fa-angle-left pull-right"></i>
-					</a></li>
-					<li class="treeview"><a href="/MyRTS/admin/station.html">
-							<i class="fa fa-table"></i> <span>Station</span> <i
-							class="fa fa-angle-left pull-right"></i>
-					</a></li>
-					<li class="treeview"><a
-						href="<c:url value='/j_spring_security_logout'/>"> <i
-							class="fa fa-sign-out"></i> <span>Sign Out</span> <i
-							class="fa fa-angle-left pull-right"></i>
-					</a></li>
-				</ul>
-			</section>
-			<!-- /.sidebar -->
-		</aside>
-		<!-- Content Wrapper. Contains page content -->
-		<div class="content-wrapper">
-			<!-- Content Header (Page header) -->
-			<section class="content-header">
-				<h1>
-					All Users<small>Hello Admin</small>
-				</h1>
-				<ol class="breadcrumb">
-					<li><a href="/MyRTS/main.html"><i class="fa fa-dashboard"></i>
-							Home</a></li>
-					<li class="active">Stations</li>
-				</ol>
-			</section>
+        <div class="row">
+          <div class="col-lg-4">
+            <h1>Descriptions</h1>
+            <dl>
+              <dt>Standard Description List</dt>
+              <dd>Description Text</dd>
+              <dt>Description List Title</dt>
+              <dd>Description List Text</dd>
+            </dl>            
+            <dl class="dl-horizontal">
+              <dt>Horizontal Description List</dt>
+              <dd>Description Text</dd>
+              <dt>Description List Title</dt>
+              <dd>Description List Text</dd>
+            </dl>            
+          </div>
+          <div class="col-lg-4">
+            <h1>Code</h1>
+            <p>This is an example of an inline code element within body copy. Wrap inline code within a <code>&lt;code&gt;...&lt;/code&gt;</code> tag.</p>
+            <pre>This is an example of preformatted text.</pre>
+          </div>          
+        </div><!-- /.row -->
 
-			<!-- Main content -->
-			<section class="content">
-				<div ng-app="orderModule" ng-controller="OrderController">
-					<table id="order"
-						class="table table-bordered table-striped dataTable" role="grid" >
-						<thead>
-							<tr>
-								<th>First Name</th>
-								<th>Last Name</th>
-								<th>Email</th>
-							</tr>
-						</thead>
-						
-						<tbody>
-						<c:forEach var="user" items="${userTable}">
-						<tr>
-							<td>${user.firstName}</td>
-							<td>${user.lastName}</td>
-							<td>${user.email}</td>
-						</tr>
-						</c:forEach>
-						</tbody>
-					</table>
-				</div>
-			</section>
+      </div>
 
-			<!-- /. tools -->
-		</div>
-		<!-- /.box-header -->
-		<div class="box-body no-padding">
-			<!--The calendar -->
-			<div id="calendar" style="width: 100%"></div>
-		</div>
-		<!-- /.box-body -->
-		<div class="box-footer text-black">
-			<div class="row"></div>
-			<!-- /.col -->
-		</div>
-		<!-- /.row -->
-	</div>
-	<!-- /.box -->
-	<footer class="main-footer-wrapper">
-		<div class="pull-right hidden-xs">
-			<b>Version</b> 2.3.0
-		</div>
-		<strong>Copyright &copy; 2014-2015 <a
-			href="http://almsaeedstudio.com">Almsaeed Studio</a>.
-		</strong> All rights reserved.
-	</footer>
-	<!-- ./wrapper -->
-	<!-- <iframe src="/MyRTS/admin/schedule.html" name="iframe_a"></iframe> -->
-	<!-- jQuery 2.1.4 -->
-	<script
-		src="<c:url value="/resource/plugins/jQuery/jQuery-2.1.4.min.js"/>"></script>
-	<!-- DataTables -->
-	<script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
-	<script src="../../plugins/datatables/dataTables.bootstrap.min.js"></script>
-	<!-- Bootstrap 3.3.5 -->
-	<script
-		src="<c:url value="/resource/js/bootstrap/js/bootstrap.min.js"/>"></script>
-	<!-- SlimScroll -->
-	<script
-		src="<c:url value="/resource/plugins/slimScroll/jquery.slimscroll.min.js"/>"></script>
-	<!-- FastClick -->
-	<script
-		src="<c:url value="/resource/plugins/fastclick/fastclick.min.js"/>"></script>
-	<!-- AdminLTE App -->
-	<script src="<c:url value="/resource/dist/js/app.min.js"/>"></script>
-	<!-- AdminLTE for demo purposes -->
-	<script src="<c:url value="/resource/dist/js/demo.js"/>"></script>
+</div>
 </body>
 </html>

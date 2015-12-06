@@ -18,16 +18,20 @@ import org.springframework.transaction.annotation.Transactional;
 import com.mercury.beans.ConfirmationCode;
 import com.mercury.beans.CreditCard;
 import com.mercury.beans.Order;
+import com.mercury.beans.Train;
 import com.mercury.beans.User;
 import com.mercury.dao.ConfirmationCodeDao;
 import com.mercury.dao.CreditCardDao;
 import com.mercury.dao.OrderDao;
 import com.mercury.dao.PersonDao;
+import com.mercury.dao.TrainDao;
 
 @Service
 @Transactional(readOnly=true)
 public class CustomUserDetailsService implements UserDetailsService{
 	private PersonDao pd;
+	
+	private TrainDao td;
 	
 	private CreditCardDao ccd;
 	
@@ -46,7 +50,15 @@ public class CustomUserDetailsService implements UserDetailsService{
 	 ConfirmationCodeDao ccd= new ConfirmationCodeDao();
 		ccd.savecode(cc);
 	}
-
+	
+	
+	
+	public TrainDao getTd() {
+		return td;
+	}
+	public void setTd(TrainDao td) {
+		this.td = td;
+	}
 	public CreditCardDao getCcd() {
 		return ccd;
 	}
@@ -98,7 +110,9 @@ public class CustomUserDetailsService implements UserDetailsService{
 	public void addTransit(){
 		
 	}
-	
+	public Train gettrain(int trainno){
+		return this.td.findByNo(trainno);
+	}
 
 	public CreditCard getCreditCardsById(int cardId){
 		return this.ccd.queryCardById(cardId);

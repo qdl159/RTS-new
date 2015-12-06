@@ -25,6 +25,12 @@
    		    margin: auto;
     		text-align: center;
     	}
+    	text[text-anchor=start] tspan,
+    	text[text-anchor=end] tspan{
+    		display:none;
+    	}
+    	<Legend RenderDirection="Horizontal" Align="Center" VerticalAlign="Bottom"></Legend>
+
     </style>
 </head>
 <body>
@@ -134,7 +140,21 @@
                             <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i>Users Activation Rate</h3>
                         </div>
                         <div class="panel-body">
-                            <div id="shieldui-chart2"></div>
+                            <div id="shieldui-chart2">
+                            	
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i>All Tickets</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div id="shieldui-chart5">
+                            	
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -210,8 +230,17 @@
 					orderData = data;
 				}
 			});
+        	train1=${train1};
+        	train2=${train2};
+        	train3=${train3};
+        	train4=${train4};
+        	count = ${count};
+        	actived = ${actived};
+        	newuser = count-actived;
             var performance = [12, 43, 34, 22, 12, 33, 4, 17, 22, 34, 54, 67],
-                visits = [123, 323, 443, 32],
+                visit1 = [newuser],
+                visit2 = [actived],
+                
                 budget = [23, 19, 11, 134, 242, 352, 435, 22, 637, 445, 555, 57],
                 sales = [11, 9, 31, 34, 42, 52, 35, 22, 37, 45, 55, 57];
 
@@ -232,22 +261,55 @@
 
             $("#shieldui-chart2").shieldChart({
                 primaryHeader: {
-                    text: "Logins Per week"
+                    text: "Actived User"
                 },
                 exportOptions: {
                     image: false,
                     print: false
                 },
                 seriesSettings: {
-                    donut: {
-                        enablePointSelection: true
+                	bar: {
+                        stackMode: 'normal'
                     }
                 },
                 dataSeries: [{
-                    seriesType: "donut",
-                    collectionAlias: "logins",
-                    data: visits
-                }]
+                    seriesType: "bar",
+                    collectionAlias: "actived user",
+                    stackIndex:0,
+                    data: visit2
+                },
+                {
+                    seriesType: "bar",
+                    collectionAlias: "nonactived user",
+                    stackIndex:1,
+                    data: visit1
+                }
+                ]
+            });
+            $("#shieldui-chart5").shieldChart({
+                primaryHeader: {
+                    text: "Train tickets"
+                },
+                exportOptions: {
+                    image: false,
+                    print: false
+                },
+                seriesSettings: {
+                	bar: {
+                        stackMode: 'normal'
+                    }
+                },
+                dataSeries: [{
+                    seriesType: "pie",
+                    data: [
+                           ["Train 101", train1],
+                           ["Train 102", train2],
+                           { collectionAlias: "Train 103", y: train3, sliced: true },
+                           ["Train 200", train4]
+                           
+                       ]
+                    
+                }]    
             });
 
             $("#shieldui-chart3").shieldChart({

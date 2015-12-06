@@ -59,6 +59,7 @@ public class TrainDaoImpl implements TrainDao {
 		String hql = "from Train t where t.trainNo=:trainNo";
 		Train train = null;
 		List <Train> list = template.findByNamedParam(hql,"trainNo",trainNo);
+		System.out.println(list.size());
 		if(list.size() != 0){
 			train = list.get(0);
 		}

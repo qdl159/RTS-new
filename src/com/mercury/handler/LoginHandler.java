@@ -42,14 +42,16 @@ public class LoginHandler extends SavedRequestAwareAuthenticationSuccessHandler 
 					&&	!redirectUrl.contains("/MyRTS/login")
 					&&	!redirectUrl.contains("/MyRTS/register")
 					&&	!redirectUrl.contains("/MyRTS/activate")
+					&&  !redirectUrl.contains("/MyRTS/main")
 				){
-				
+				System.out.println("*****here1*****");
 				// we do not forget to clean this attribute from session
 				session.removeAttribute("url_prior_login");
 				// then we redirect
 				getRedirectStrategy().sendRedirect(request, response,
 						redirectUrl);
 			} else {
+				System.out.println("*****here2*****");
 				if (roles.contains("ROLE_ADMIN")) {
 					response.sendRedirect(basePath + "admin/dashboard.html");
 				} else if (roles.contains("ROLE_USER")) {

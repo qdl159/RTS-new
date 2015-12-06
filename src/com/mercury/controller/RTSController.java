@@ -8,6 +8,7 @@ import java.util.Map;
 import java.util.Set;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -40,7 +41,7 @@ public class RTSController {
 	
 	private static final Logger logger = Logger.getLogger(RTSController.class);
 
-	
+	@Resource(name="railwayService")
 	private RailwayService railwayService;
 	//private CartService cartService;
 	
@@ -63,7 +64,7 @@ public class RTSController {
 		return railwayService;
 	}
 
-	@PostConstruct
+	//@PostConstruct
 	public void setRailwayService(RailwayService railwayService) {
 		this.railwayService = railwayService;
 	}
@@ -71,6 +72,7 @@ public class RTSController {
 	@RequestMapping(value = "/login", method = {RequestMethod.GET,RequestMethod.POST})
 	public String login(HttpServletRequest request, ModelMap model) {
 		 String referrer = request.getHeader("Referer");
+		 System.out.println("testlogin");
 		 System.out.println(referrer);
 		 request.getSession().setAttribute("url_prior_login", referrer);
 		 return "login";
@@ -78,10 +80,11 @@ public class RTSController {
 	
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public String hello(HttpServletRequest request, ModelMap model) {
+		System.out.println("testindex");
 		 return "hello";
 	}
-	
-	@RequestMapping(value = "/resetpassword", method = {RequestMethod.GET})
+		
+	@RequestMapping(value = "/resetpassword", method = RequestMethod.GET)
 	public String resetpassword(ModelMap model) {
 		return "resetpassword";
 	}
@@ -89,7 +92,8 @@ public class RTSController {
 	@RequestMapping(value = "/main", method = RequestMethod.GET)
 	public ModelAndView mainPage() {
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("/hello");
+		System.out.println("testmain");
+		mav.setViewName("/login");
 		mav.addObject("title", "This is main page.");
 		return mav;
 	}

@@ -65,8 +65,7 @@
                     <li class="dropdown user-dropdown">
                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Administrator<b class="caret"></b></a>
                        <ul class="dropdown-menu">
-                           <li><a href="#"><i class="fa fa-user"></i> Profile</a></li>
-                           <li><a href="#"><i class="fa fa-gear"></i> Settings</a></li>
+                           <li><a href="/MyRTS/main.html"><i class="fa fa-user"></i> MainPage</a></li>
                            <li class="divider"></li>
                            <li><a href="/MyRTS/j_spring_security_logout"><i class="fa fa-power-off"></i> Log Out</a></li>
                        </ul>

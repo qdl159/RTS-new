@@ -2,228 +2,281 @@
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Member Dashboard</title>
-<!-- Tell the browser to be responsive to screen width -->
-<meta
-	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
-	name="viewport">
-<!-- Bootstrap 3.3.5 -->
-<link rel="stylesheet"
-	href="<c:url value="/resource/js/bootstrap/css/bootstrap.min.css"/>">
-<!-- Font Awesome -->
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-<!-- Ionicons -->
-<link rel="stylesheet"
-	href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-<!-- Theme style -->
-<link rel="stylesheet"
-	href="<c:url value="/resource/dist/css/AdminLTE.min.css"/>">
-<!-- jvectormap -->
-<link rel="stylesheet"
-	href="<c:url value="/resource/plugins/jvectormap/jquery-jvectormap-1.2.2.css"/>">
-<!-- Theme style -->
-<link rel="stylesheet"
-	href="<c:url value="/resource/dist/css/AdminLTE.min.css"/>">
-<!-- AdminLTE Skins. Choose a skin from the css/skins
-         folder instead of downloading all of them to reduce the load. -->
-<link rel="stylesheet"
-	href="<c:url value="/resource/dist/css/skins/_all-skins.min.css"/>">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User DashBoard</title>
 
-<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="<c:url value="/resource/newSource/bootstrap/css/bootstrap.min.css"/>">
+    <link rel="stylesheet" type="text/css" href="<c:url value="/resource/newSource/font-awesome/css/font-awesome.min.css" />">
+    <link rel="stylesheet" type="text/css" href="<c:url value="/resource/newSource/css/local.css" />">
+
+    <script type="text/javascript" src="<c:url value="/resource/newSource/js/jquery-1.10.2.min.js"/>"></script>
+    <script type="text/javascript" src="<c:url value="/resource/newSource/bootstrap/js/bootstrap.min.js"/>"></script>
+
+    <!-- you need to include the shieldui css and js assets in order for the charts to work -->
+    <link rel="stylesheet" type="text/css" href="http://www.shieldui.com/shared/components/latest/css/light-bootstrap/all.min.css" />
+    <script type="text/javascript" src="http://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
+    <script type="text/javascript" src="http://www.prepbootstrap.com/Content/js/gridData.js"></script>
+ 	<style>
+    	.text-right {
+    		float: none;
+   		    margin: auto;
+    		text-align: center;
+    	}
+    </style>
 </head>
-<body class="hold-transition skin-green sidebar-mini">
-	<div class="wrapper">
+<body>
+    <div id="wrapper">
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">            
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="dashboard.html">User Page</a>
+            </div>
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <li class="active"><a href="dashboard.html"><i class="fa fa-bullseye"></i> Dashboard</a></li>
+                    <li><a href="ticket.html"><i class="fa fa-tasks"></i> Tickets</a></li>                    
+                    <li><a href="creditcard.html"><i class="fa fa-globe"></i> CreditCard</a></li>
+                    <li><a href="order.html"><i class="fa fa-list-ol"></i> Order</a></li>
+                    <li><a href="checkout.html"><i class="fa fa-font"></i> CheckOut</a></li>                
+                </ul>
+                <ul class="nav navbar-nav navbar-right navbar-user">
+                    <li class="dropdown messages-dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> Messages <span class="badge">2</span> <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-header">2 New Messages</li>
+                            <li class="message-preview">
+                                <a href="#">
+                                    <span class="avatar"><i class="fa fa-bell"></i></span>
+                                    <span class="message">Security alert</span>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li class="message-preview">
+                                <a href="#">
+                                    <span class="avatar"><i class="fa fa-bell"></i></span>
+                                    <span class="message">Security alert</span>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li><a href="#">Go to Inbox <span class="badge">2</span></a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown user-dropdown">
+                       <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> ***@***.com<b class="caret"></b></a>
+                       <ul class="dropdown-menu">
+                           <li><a href="/MyRTS/main.html"><i class="fa fa-user"></i> MainPage</a></li>
+                           <li class="divider"></li>
+                           <li><a href="/MyRTS/j_spring_security_logout"><i class="fa fa-power-off"></i> Log Out</a></li>
+                       </ul>
+                   </li>
+                </ul>
+            </div>
+        </nav>
 
-		<header class="main-header"> <!-- Logo --> <a
-			href="/MyRTS/index.html" class="logo"> <!-- mini logo for sidebar mini 50x50 pixels -->
-			<span class="logo-mini"><b>R</b>TS</span> <!-- logo for regular state and mobile devices -->
-			<span class="logo-lg"><b>Railway</b>SYSTEM</span>
-		</a> <!-- Header Navbar: style can be found in header.less --> <nav
-			class="navbar navbar-static-top" role="navigation"> <!-- Sidebar toggle button-->
-		<a href="#" class="sidebar-toggle" data-toggle="offcanvas"
-			role="button"> <span class="sr-only">Toggle navigation</span>
-		</a> <!-- Navbar Right Menu --> </nav> </header>
-		<!-- Left side column. contains the logo and sidebar -->
-		<aside class="main-sidebar"> <!-- sidebar: style can be found in sidebar.less -->
-		<section class="sidebar"> <!-- Sidebar user panel -->
-		<div class="user-panel">
-			<div class="pull-left image">
-				<img src="<c:url value="/resource/dist/img/user5-128x128.jpg"/>"
-					class="img-circle" alt="User Image">
-			</div>
-			<div class="pull-left info">
-				<p>${username}</p>
-				<a href="#"><i class="fa fa-circle text-success"></i> Online</a>
-			</div>
-		</div>
-		<!-- search form --> <!-- /.search form --> <!-- sidebar menu: : style can be found in sidebar.less -->
-		<ul class="sidebar-menu">
-			<li class="header">MAIN NAVIGATION</li>
-			<li class="active treeview"><a
-				href="/MyRTS/profile.html"> <i class="fa fa-dashboard"></i>
-					<span>Dashboard</span> <i class="fa fa-angle-left pull-right"></i>
-			</a></li>
-			<li class="treeview"><a href="/MyRTS/searchbydate.html"> <i class="fa fa-search"></i>
-					<span>Search</span><i class="fa fa-angle-left pull-right"></i>
-			</a></li>
-			<li class="treeview"><a href="/MyRTS/member/order.html"> <i
-					class="fa fa-th"></i> <span>Order</span><i
-					class="fa fa-angle-left pull-right"></i>
-			</a></li>
-			<li class="treeview"><a href="/MyRTS/member/creditcard.html">
-					<i class="fa fa-credit-card"></i> <span>Creditcard</span> <i
-					class="fa fa-angle-left pull-right"></i>
-			</a></li>
-			<li class="treeview"><a href="/MyRTS/member/checkout.html">
-					<i class="fa fa-unlock"></i> <span>Checkout</span> <i
-					class="fa fa-angle-left pull-right"></i>
-			</a></li>
-			<li class="treeview"><a href="#"> <i class="fa fa-table"></i>
-					<span>Blank</span> <i class="fa fa-angle-left pull-right"></i>
-			</a>
-				<ul class="treeview-menu">
-					<li><a href="pages/tables/simple.html"><i
-							class="fa fa-circle-o"></i> Blank 1</a></li>
-					<li><a href="pages/tables/data.html"><i
-							class="fa fa-circle-o"></i> Blank 2</a></li>
-				</ul></li>
-			<li class="treeview"><a href="<c:url value='/j_spring_security_logout'/>">
-					<i class="fa fa-sign-out"></i> <span>Sign Out</span> <i
-					class="fa fa-angle-left pull-right"></i>
-			</a></li>
-			</ul>
-		</section> <!-- /.sidebar --> </aside>
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>Hello, ***@***.com <small>DashBoard </small></h1>
+                    <div class="alert alert-success alert-dismissable">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        Welcome to your RailwayTicketingSystem Dashboard! 
+                        <br />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-3">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title"><i class="fa fa-clock-o"></i>User's Information</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row alert-success">
+                                <div class="col-xs-5 text-right">
+                                    <p class="alerts-heading">343</p>
+                                    <p class="alerts-text">Orders</p>
+                                </div>
+                            </div>
+                            <div class="row alert-success">
+                                <div class="col-xs-5 text-right">
+                                    <p class="alerts-heading">1256</p>
+                                    <p class="alerts-text">Saved CreditCard</p>
+                                </div>
+                            </div>
 
-		<!-- Content Wrapper. Contains page content -->
-		<div class="content-wrapper">
-			<!-- Content Header (Page header) -->
-			<section class="content-header">
-			<h1>
-				Dashboard <small>Version 2.0</small>
-			</h1>
-			<ol class="breadcrumb">
-				<li><a href="/MyRTS/index.html"><i class="fa fa-dashboard"></i>
-						Home</a></li>
-				<li class="active">Dashboard</li>
-			</ol>
-			</section>
+                            <!-- <div class="row alert-success">
+                                <div class="col-xs-5 text-right">
+                                    <p class="alerts-heading">11</p>
+                                    <p class="alerts-text">Stations</p>
+                                </div>
+                            </div> -->
+                            <!-- <div class="row alert-success">
+                                <div class="col-xs-5 text-right">
+                                    <p class="alerts-heading">11</p>
+                                    <p class="alerts-text">TotalUsers</p>
+                                </div>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+             <!--    <div class="col-lg-4">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i>Users Activation Rate</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div id="shieldui-chart2"></div>
+                        </div>
 
-			<!-- Main content -->
-			<section class="content"> <!-- Info boxes -->
-			<div class="row">
-				<div class="col-md-3 col-sm-6 col-xs-12">
-					<div class="info-box">
-						<span class="info-box-icon bg-aqua"><i
-							class="ion ion-ios-gear-outline"></i></span>
-						<div class="info-box-content">
-							<span class="info-box-text">CPU Traffic</span> <span
-								class="info-box-number">90<small>%</small></span>
-						</div>
-						<!-- /.info-box-content -->
-					</div>
-					<!-- /.info-box -->
-				</div>
-				<!-- /.col -->
-				<div class="col-md-3 col-sm-6 col-xs-12">
-					<div class="info-box">
-						<span class="info-box-icon bg-red"><i
-							class="fa fa-google-plus"></i></span>
-						<div class="info-box-content">
-							<span class="info-box-text">Likes</span> <span
-								class="info-box-number">41,410</span>
-						</div>
-						<!-- /.info-box-content -->
-					</div>
-					<!-- /.info-box -->
-				</div>
-				<!-- /.col -->
+                    </div>
+                </div> -->
+              <!--   <div class="col-lg-4">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i>All Tickets</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div id="shieldui-chart2"></div>
+                        </div>
 
-				<!-- fix for small devices only -->
-				<div class="clearfix visible-sm-block"></div>
+                    </div>
+                </div> -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i>Your Orders</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div id="shieldui-grid1"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /#page-wrapper -->
+    </div>
+    <!-- /#wrapper -->
 
-				<div class="col-md-3 col-sm-6 col-xs-12">
-					<div class="info-box">
-						<span class="info-box-icon bg-green"><i
-							class="ion ion-ios-cart-outline"></i></span>
-						<div class="info-box-content">
-							<span class="info-box-text">Sales</span> <span
-								class="info-box-number">760</span>
-						</div>
-						<!-- /.info-box-content -->
-					</div>
-					<!-- /.info-box -->
-				</div>
-				<!-- /.col -->
-				<div class="col-md-3 col-sm-6 col-xs-12">
-					<div class="info-box">
-						<span class="info-box-icon bg-yellow"><i
-							class="ion ion-ios-people-outline"></i></span>
-						<div class="info-box-content">
-							<span class="info-box-text">New Members</span> <span
-								class="info-box-number">2,000</span>
-						</div>
-						<!-- /.info-box-content -->
-					</div>
-					<!-- /.info-box -->
-				</div>
-				<!-- /.col -->
-			</div>
-			<!-- /.row --> </section>
-			<!-- /.content -->
-		</div>
-		<!-- /.content-wrapper -->
+    <!--
+        This section initializes the chart widgets and a grid component, 
+        which visualize records and allow sorting and paging. 
+        For more information visit: 
+        http://www.shieldui.com/documentation/javascript.chart/getting.started
+        http://www.shieldui.com/documentation/grid/javascript/getting.started
+        http://www.shieldui.com/documentation/datasource/javascript/getting.started
+    -->
+    <script type="text/javascript">
+        jQuery(function ($) {
+        	var orderData = [];
+        	$.ajax({
+				url: "/MyRTS/admin/orderData",
+				type: "get",
+				dataType: "json",
+				async: false,
+				success: function(data) {
+					orderData = data;
+				}
+			});
+            var performance = [12, 43, 34, 22, 12, 33, 4, 17, 22, 34, 54, 67],
+                visits = [123, 323, 443, 32],
+                budget = [23, 19, 11, 134, 242, 352, 435, 22, 637, 445, 555, 57],
+                sales = [11, 9, 31, 34, 42, 52, 35, 22, 37, 45, 55, 57];
+/* 
+            $("#shieldui-chart1").shieldChart({
+                primaryHeader: {
+                    text: "Visitors"
+                },
+                exportOptions: {
+                    image: false,
+                    print: false
+                },
+                dataSeries: [{
+                    seriesType: "area",
+                    collectionAlias: "Q Data",
+                    data: performance
+                }]
+            });
 
-		<footer class="main-footer">
-		<div class="pull-right hidden-xs">
-			<b>Version</b> 2.3.0
-		</div>
-		<strong>Copyright &copy; 2014-2015 <a
-			href="http://almsaeedstudio.com">Almsaeed Studio</a>.
-		</strong> All rights reserved. </footer>
+            $("#shieldui-chart2").shieldChart({
+                primaryHeader: {
+                    text: "Logins Per week"
+                },
+                exportOptions: {
+                    image: false,
+                    print: false
+                },
+                seriesSettings: {
+                    donut: {
+                        enablePointSelection: true
+                    }
+                },
+                dataSeries: [{
+                    seriesType: "donut",
+                    collectionAlias: "logins",
+                    data: visits
+                }]
+            });
 
-		<!-- Control Sidebar -->
-		<!-- Add the sidebar's background. This div must be placed
-           immediately after the control sidebar -->
-		<div class="control-sidebar-bg"></div>
+            $("#shieldui-chart3").shieldChart({
+                primaryHeader: {
+                    text: "Budget"
+                },
+                dataSeries: [{
+                    seriesType: "line",
+                    collectionAlias: "Budget",
+                    data: budget
+                }]
+            }); */
 
-	</div>
-	<!-- ./wrapper -->
-	<!-- jQuery 2.1.4 -->
-	<script
-		src="<c:url value="/resource/plugins/jQuery/jQuery-2.1.4.min.js"/>"></script>
-	<!-- Bootstrap 3.3.5 -->
-	<script
-		src="<c:url value="/resource/js/bootstrap/js/bootstrap.min.js"/>"></script>
-	<!-- FastClick -->
-	<script
-		src="<c:url value="/resource/plugins/fastclick/fastclick.min.js"/>"></script>
-	<!-- AdminLTE App -->
-	<script src="<c:url value="/resource/dist/js/app.min.js"/>"></script>
-	<!-- Sparkline -->
-	<script
-		src="<c:url value="/resource/plugins/sparkline/jquery.sparkline.min.js"/>"></script>
-	<!-- jvectormap -->
-	<script
-		src="<c:url value="/resource/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"/>"></script>
-	<script
-		src="<c:url value="/resource/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"/>"></script>
-	<!-- SlimScroll 1.3.0 -->
-	<script
-		src="<c:url value="/resource/plugins/slimScroll/jquery.slimscroll.min.js"/>"></script>
-	<!-- ChartJS 1.0.1 -->
-	<script src="<c:url value="/resource/plugins/chartjs/Chart.min.js"/>"></script>
-	<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-	<script src="<c:url value="/resource/dist/js/pages/dashboard2.js"/>"></script>
-	<!-- AdminLTE for demo purposes -->
-	<script src="<c:url value="/resource/dist/js/demo.js"/>"></script>
+            /* $("#shieldui-chart4").shieldChart({
+                primaryHeader: {
+                    text: "Sales"
+                },
+                dataSeries: [{
+                    seriesType: "bar",
+                    collectionAlias: "sales",
+                    data: sales
+                }]
+            }); */
+			
+            $("#shieldui-grid1").shieldGrid({
+                dataSource: {
+                    data: orderData
+                },
+                sorting: {
+                    multiple: true
+                },
+                paging: {
+                    pageSize: 12,
+                    pageLinksCount: 4
+                },
+                selection: {
+                    type: "row",
+                    multiple: true,
+                    toggle: false
+                },
+                columns: [
+                    { field: "orderNo", title: "OrderNumber" },
+                    /* { field: "user.email", title: "Email" }, */
+                    /* { field: "user.userId", title: "UserID"}, */
+            		{ field: "date", title: "OrderDate" },
+                    { field: "creditCardNo", title: "CreditCardNumber"},
+                    /* { field: "status", title: "OrderStatus"}  */
+                ]
+            });
+        });
+    </script>
+    
+    
 </body>
 </html>

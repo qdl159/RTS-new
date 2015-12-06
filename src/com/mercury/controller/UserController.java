@@ -139,10 +139,10 @@ public class UserController {
 		return this.getCreditCardsByUserId(user.getUserId());
 	}
 
-	@RequestMapping(value = "/member/search", method = RequestMethod.GET)
+	@RequestMapping(value = "/member/ticket", method = RequestMethod.GET)
 	public ModelAndView queryticket() {
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("/member/search");
+		mav.setViewName("/member/ticket");
 		mav.addObject("title", "Search a ticket");
 		mav.addObject("username", this.getUser().getEmail());
 		System.out.println(CustomUserDetailsService.currentUserDetails()

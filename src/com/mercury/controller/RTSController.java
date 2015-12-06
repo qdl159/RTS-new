@@ -81,7 +81,7 @@ public class RTSController {
 		 return "hello";
 	}
 	
-	@RequestMapping(value = "/resetpassword", method = {RequestMethod.GET})
+	@RequestMapping(value = "/resetpassword", method = RequestMethod.GET)
 	public String resetpassword(ModelMap model) {
 		return "resetpassword";
 	}

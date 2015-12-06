@@ -242,10 +242,10 @@
 					orderData = data;
 				}
 			});
-        	train1=${train1};
+        	/* train1=${train1};
         	train2=${train2};
         	train3=${train3};
-        	train4=${train4};
+        	train4=${train4}; */
         	count = ${count};
         	actived = ${actived};
         	newuser = count-actived;

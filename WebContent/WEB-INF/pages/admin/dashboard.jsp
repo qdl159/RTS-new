@@ -156,6 +156,18 @@
                             	
                             </div>
                         </div>
+
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i>All Tickets</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div id="shieldui-chart2"></div>
+                        </div>
+
                     </div>
                 </div>
 	               <!--  <div class="col-lg-9">

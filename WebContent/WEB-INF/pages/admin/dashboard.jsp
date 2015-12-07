@@ -25,12 +25,9 @@
    		    margin: auto;
     		text-align: center;
     	}
-    	text[text-anchor=start] tspan,
-    	text[text-anchor=end] tspan{
+    	text[text-anchor=start] tspan, text[text-anchor=end] tspan{
     		display:none;
     	}
-    	<Legend RenderDirection="Horizontal" Align="Center" VerticalAlign="Bottom"></Legend>
-
     </style>
 </head>
 <body>
@@ -79,7 +76,7 @@
                     <li class="dropdown user-dropdown">
                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Administrator<b class="caret"></b></a>
                        <ul class="dropdown-menu">
-                           <li><a href="#"><i class="fa fa-user"></i> Profile</a></li>
+                           <li><a href="/MyRTS/main.html"><i class="fa fa-user"></i> MainPage</a></li>
                            <li class="divider"></li>
                            <li><a href="/MyRTS/j_spring_security_logout"><i class="fa fa-power-off"></i> Log Out</a></li>
                        </ul>
@@ -108,26 +105,26 @@
                         <div class="panel-body">
                             <div class="row alert-success">
                                 <div class="col-xs-5 text-right">
-                                    <p class="alerts-heading">343</p>
-                                    <p class="alerts-text">New Orders</p>
+                                    <p class="alerts-heading">${orders}</p>
+                                    <p class="alerts-text">Orders</p>
                                 </div>
                             </div>
                             <div class="row alert-success">
                                 <div class="col-xs-5 text-right">
-                                    <p class="alerts-heading">1256</p>
+                                    <p class="alerts-heading">${trains}</p>
                                     <p class="alerts-text">Trains</p>
                                 </div>
                             </div>
 
                             <div class="row alert-success">
                                 <div class="col-xs-5 text-right">
-                                    <p class="alerts-heading">11</p>
+                                    <p class="alerts-heading">${station}</p>
                                     <p class="alerts-text">Stations</p>
                                 </div>
                             </div>
                             <div class="row alert-success">
                                 <div class="col-xs-5 text-right">
-                                    <p class="alerts-heading">11</p>
+                                    <p class="alerts-heading">${count }</p>
                                     <p class="alerts-text">TotalUsers</p>
                                 </div>
                             </div>
@@ -140,21 +137,7 @@
                             <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i>Users Activation Rate</h3>
                         </div>
                         <div class="panel-body">
-                            <div id="shieldui-chart2">
-                            	
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i>All Tickets</h3>
-                        </div>
-                        <div class="panel-body">
-                            <div id="shieldui-chart5">
-                            	
-                            </div>
+                            <div id="shieldui-chart2"></div>
                         </div>
 
                     </div>
@@ -165,7 +148,7 @@
                             <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i>All Tickets</h3>
                         </div>
                         <div class="panel-body">
-                            <div id="shieldui-chart2"></div>
+                            <div id="shieldui-chart5"></div>
                         </div>
 
                     </div>
@@ -242,14 +225,18 @@
 					orderData = data;
 				}
 			});
-        	
+        	trains = ${trains};
+        	station = ${station};
         	count = ${count};
         	actived = ${actived};
         	newuser = count-actived;
+        	train1 = ${train1};
+        	train2 = ${train2};
+        	train3 = ${train3};
+        	train4 = ${train4};
             var performance = [12, 43, 34, 22, 12, 33, 4, 17, 22, 34, 54, 67],
-                visit1 = [newuser],
-                visit2 = [actived],
-                
+                visit1 = [actived],
+                visit2 = [newuser],
                 budget = [23, 19, 11, 134, 242, 352, 435, 22, 637, 445, 555, 57],
                 sales = [11, 9, 31, 34, 42, 52, 35, 22, 37, 45, 55, 57];
 
@@ -270,65 +257,43 @@
 
             $("#shieldui-chart2").shieldChart({
                 primaryHeader: {
-                    text: "Actived User"
+                    text: "User Activation Rate"
                 },
                 exportOptions: {
                     image: false,
                     print: false
                 },
                 seriesSettings: {
-                	bar: {
-                        stackMode: 'normal'
+                    donut: {
+                        enablePointSelection: true
                     }
                 },
                 dataSeries: [{
                     seriesType: "bar",
-                    collectionAlias: "actived user",
-                    stackIndex:0,
-                    data: visit2
+                    collectionAlias: "Activated User",
+                    data: visit1
                 },
                 {
                     seriesType: "bar",
-                    collectionAlias: "nonactived user",
-                    stackIndex:1,
-                    data: visit1
+                    collectionAlias: "NonActivated User",
+                    data: visit2
                 }
                 ]
             });
+
             $("#shieldui-chart5").shieldChart({
                 primaryHeader: {
-                    text: "Train tickets"
-                },
-                exportOptions: {
-                    image: false,
-                    print: false
-                },
-                seriesSettings: {
-                	bar: {
-                        stackMode: 'normal'
-                    }
+                    text: "All Train Available Tickets"
                 },
                 dataSeries: [{
-                    seriesType: "pie",
+                	seriesType: "pie",
                     data: [
-                           ["Train 101", train1],
-                           ["Train 102", train2],
-                           { collectionAlias: "Train 103", y: train3, sliced: true },
-                           ["Train 200", train4]
-                           
-                       ]
-                    
-                }]    
-            });
-
-            $("#shieldui-chart3").shieldChart({
-                primaryHeader: {
-                    text: "Budget"
-                },
-                dataSeries: [{
-                    seriesType: "line",
-                    collectionAlias: "Budget",
-                    data: budget
+                        ["train1", train1],
+                        ["train2", train2],
+                        { collectionAlias: "train3", y: train3, sliced: true },
+                        ["train4", train4]
+                       
+                    ]
                 }]
             });
 

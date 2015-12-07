@@ -81,7 +81,7 @@ public class RTSController {
 		 return "hello";
 	}
 	
-	@RequestMapping(value = "/resetpassword", method = {RequestMethod.GET})
+	@RequestMapping(value = "/resetpassword", method = RequestMethod.GET)
 	public String resetpassword(ModelMap model) {
 		return "resetpassword";
 	}
@@ -93,12 +93,12 @@ public class RTSController {
 		mav.addObject("title", "This is main page.");
 		return mav;
 	}
-
-
 	@RequestMapping(value="main1", method=RequestMethod.GET)
 	public String hello1() {
 		return "hello1";
 	}
+
+
 
 
 	@RequestMapping(value = "/admin/order", method = RequestMethod.GET)

@@ -317,22 +317,10 @@ public class UserController {
 		}
 		if (user.getRole().getUserRoleId() == 200) {
 			mav.setViewName("admin/dashboard");
-			/*TicketContainer tc = new TicketContainer();
-			Date date = tc.getDates().get(1);
-			Train train1 = this.customUserDetailsService.getTd().findByNo(101);
-			Train train2 = this.customUserDetailsService.getTd().findByNo(102);
-			Train train3 = this.customUserDetailsService.getTd().findByNo(103);
-			Train train4 = this.customUserDetailsService.getTd().findByNo(200);
-			TrainSchedule ts1 = new TrainSchedule(train1,date);
-			TrainSchedule ts2 = new TrainSchedule(train2,date);
-			TrainSchedule ts3 = new TrainSchedule(train3,date);
-			TrainSchedule ts4 = new TrainSchedule(train4,date);*/
+			
 			mav.addObject("count", this.customUserDetailsService.countUser());
 			mav.addObject("actived", this.customUserDetailsService.countActivedUser());
-/*			mav.addObject("train1", ts1.getAvailableTickets());
-			mav.addObject("train2", ts2.getAvailableTickets());
-			mav.addObject("train3", ts3.getAvailableTickets());
-			mav.addObject("train4", ts4.getAvailableTickets());*/
+		
 		}
 		return mav;
 	}
@@ -350,22 +338,10 @@ public class UserController {
 		mav.addObject("title", "Hello admin, welcome to dashboard");
 		int count = this.customUserDetailsService.countUser();
 		System.out.println(count);
-		/*TicketContainer tc = new TicketContainer();
-		Date date = tc.getDates().get(1);
-		Train train1 = this.customUserDetailsService.getTd().findByNo(101);
-		Train train2 = this.customUserDetailsService.getTd().findByNo(102);
-		Train train3 = this.customUserDetailsService.getTd().findByNo(103);
-		Train train4 = this.customUserDetailsService.getTd().findByNo(200);
-		TrainSchedule ts1 = new TrainSchedule(train1,date);
-		TrainSchedule ts2 = new TrainSchedule(train2,date);
-		TrainSchedule ts3 = new TrainSchedule(train3,date);
-		TrainSchedule ts4 = new TrainSchedule(train4,date);*/
+		
 		mav.addObject("count", count);
 		mav.addObject("actived", this.customUserDetailsService.countActivedUser());
-	/*	mav.addObject("train1", ts1.getAvailableTickets());
-		mav.addObject("train2", ts2.getAvailableTickets());
-		mav.addObject("train3", ts3.getAvailableTickets());
-		mav.addObject("train4", ts4.getAvailableTickets());*/
+	
 		return mav;
 	}
 	@RequestMapping(value="/admin/userTable", method = RequestMethod.GET)

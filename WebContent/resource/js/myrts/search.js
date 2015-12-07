@@ -1,7 +1,12 @@
 
 	angular.module("mainModule",  [ "ngTouch", "angucomplete-alt", '720kb.datepicker'])
 	.controller("mainController", ['$scope','$http','$q', function ($scope, $http , $q) {
-  		$scope.train = {
+  		
+		$scope.departureStation = []; 
+		$scope.arrivalStation = [];
+		$scope.departureDate =[];
+		
+		$scope.train = {
   			trainNo: "",
   			totalTicketQty: 0,
   			enable: true
@@ -87,13 +92,36 @@
   	    };
 
   	    
-  		$scope.submitData = function (trainSearch, resultVarName) {
+  		/*$scope.submitData = function (trainSearch, resultVarName) {
 		    var params = $.param({
 		    	departureStation: trainSearch.departureStation.originalObject.stationNo,
 	        	arrivalStation: trainSearch.arrivalStation.originalObject.stationNo,
 	        	departureDate: new Date(trainSearch.departureDateTime).getTime()
 		    });
 		    //alert(trainSearch);
+    		$http({
+    			method: "POST",
+    			url: "/MyRTS/resource/schedule/get/by-stations-date",
+    			data: params,
+    			headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+    		}).success(function (data, status, headers, config) {
+    			//alert(data);
+        		$scope[resultVarName] = data;
+        		$scope.schedules = data;
+        		$scope.canShow = true;
+        		$scope.canShowAddToCart = true;
+      		}) .error(function (data, status, headers, config) {
+        		$scope[resultVarName] = "SUBMIT ERROR";
+      		});
+  		};*/
+  		
+  		$scope.submitData = function (resultVarName) {
+		    var params = $.param({
+		    	departureStation: $scope.departureStation.originalObject.stationNo,
+	        	arrivalStation: $scope.arrivalStation.originalObject.stationNo,
+	        	departureDate: new Date($scope.departureDate).getTime()
+		    });
+		 /*   alert($scope.departureDateTime);*/
     		$http({
     			method: "POST",
     			url: "/MyRTS/resource/schedule/get/by-stations-date",

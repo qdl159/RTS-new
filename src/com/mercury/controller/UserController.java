@@ -155,7 +155,7 @@ public class UserController {
 	public ModelAndView registerPage(@ModelAttribute("user") User user,
 			BindingResult result) throws Exception {
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("/hello");
+		mav.setViewName("/login");
 		mav.addObject("title", "This is register page.");
 		UserRole ur = new UserRole(100, "ROLE_USER");
 		user.setRole(ur);
@@ -179,11 +179,11 @@ public class UserController {
 
 		User user = this.customUserDetailsService.activeUser(activation);
 		if (user == null) {
-			mav.setViewName("/hello");
+			mav.setViewName("/hello2");
 			mav.addObject("title", "Activation code expired!");
 			return mav;
 		}
-		mav.setViewName("/hello");
+		mav.setViewName("/hello2");
 		mav.addObject("title", "Congratulations, " + user.getEmail()
 				+ "! Successfully activated!");
 		user.setEnable(true);

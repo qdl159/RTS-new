@@ -19,6 +19,13 @@
     <link rel="stylesheet" href="<c:url value="/resource/dist/css/AdminLTE.min.css"/>">
     <!-- iCheck -->
    <link rel="stylesheet" href="<c:url value="/resource/plugins/iCheck/square/blue.css"/>">
+   
+      <!-- jQuery 2.1.4 -->
+    <script src="<c:url value="/resource/plugins/jQuery/jQuery-2.1.4.min.js"/>"></script>
+    <!-- Bootstrap 3.3.5 -->
+    <script src="<c:url value="/resource/js/bootstrap/js/bootstrap.min.js"/>"></script>
+    <!-- iCheck -->
+    <script src="<c:url value="/resource/plugins/iCheck/icheck.min.js"/>"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -66,12 +73,7 @@
       </div><!-- /.login-box-body -->
     </div><!-- /.login-box -->
 	</header>
-    <!-- jQuery 2.1.4 -->
-    <script src="<c:url value="/resource/plugins/jQuery/jQuery-2.1.4.min.js"/>"></script>
-    <!-- Bootstrap 3.3.5 -->
-    <script src="<c:url value="/resource/js/bootstrap/js/bootstrap.min.js"/>"></script>
-    <!-- iCheck -->
-    <script src="<c:url value="/resource/plugins/iCheck/icheck.min.js"/>"></script>
+ 
 <!--     <script>
       $(function () {
         $('input').iCheck({

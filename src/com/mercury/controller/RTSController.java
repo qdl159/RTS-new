@@ -89,13 +89,13 @@ public class RTSController {
 	@RequestMapping(value = "/main", method = RequestMethod.GET)
 	public ModelAndView mainPage() {
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("/hello");
+		mav.setViewName("/hello2");
 		mav.addObject("title", "This is main page.");
 		return mav;
 	}
 	@RequestMapping(value="main1", method=RequestMethod.GET)
 	public String hello1() {
-		return "hello1";
+		return "hello2";
 	}
 
 

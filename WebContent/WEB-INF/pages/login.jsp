@@ -37,7 +37,7 @@
 <script src="<c:url value="/resource/md5.js"/>"></script>
 <style>
 .body-class {
-	background-image: url(resource/image/Steam_train.jpg);
+	background-image: url(/MyRTS/resource/image/maintheme.jpg);
 	background-size: cover;
 	background-repeat: no-repeat;
 }

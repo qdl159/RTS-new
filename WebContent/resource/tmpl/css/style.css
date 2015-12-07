@@ -347,7 +347,7 @@ input:focus {
 -----------------------------------------*/
 
 /*** SECTION HEADERS ***/
-.focus,.works,.about-us,.search,.booking,.products,.testimonial,.contact-us {
+.focus,.works,.about-us,.features,.packages,.products,.testimonial,.contact-us {
 	padding-top: 100px;
 }
 .section-header {
@@ -985,29 +985,29 @@ width: -webkit-calc(100% / 2);
 }
 
 /*---------------------------------------
- **   SECTION:  SEARCH              -----
+ **   SECTION:  FEATURES              -----
 -----------------------------------------*/
 
-.search {
+.features {
 	background: #FFFFFF;
 	text-align: left;
 	padding-bottom: 51px;
 }
-.search .feature {
+.features .feature {
 	margin-bottom: 55px;
 }
-.search .feature-icon {
+.features .feature-icon {
 	font-size: 55px;
 	float: left;
 	margin-top: 10px;
 	margin-right: 25px;
 }
-.search .feature h5 {
+.features .feature h5 {
 	font-weight: bold;
 	line-height: 28px;
 	color: #404040;
 }
-.search .feature p {
+.features .feature p {
 	font-size: 14px;
 }
 
@@ -1015,7 +1015,7 @@ width: -webkit-calc(100% / 2);
  **   SECTION:  Pacages               -----
 -----------------------------------------*/
 
-.booking {
+.packages {
 	padding-bottom: 50px;
 	background: rgba(0, 0, 0, 0.5);
 }
@@ -1491,3 +1491,15 @@ footer {
 	font-weight: 700;
 	margin-right: 5px;
 }
+
+.bg-1 {
+	/* background: url('/MyRTS/resource/image/montainrail.jpg') no-repeat center center fixed;  */
+    -webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-size: cover;
+}
+/* .row {
+  margin-left:0px;
+  margin-right:0px;
+} */

@@ -13,40 +13,21 @@
 <title>MyRTS</title>
 
 <!-- =========================
- FAV AND TOUCH ICONS  
-============================== -->
-<link rel="shortcut icon" href="images/icons/favicon.ico">
-<link rel="apple-touch-icon" href="images/icons/apple-touch-icon.png">
-<link rel="apple-touch-icon" sizes="72x72"
-	href="images/icons/apple-touch-icon-72x72.png">
-<link rel="apple-touch-icon" sizes="114x114"
-	href="images/icons/apple-touch-icon-114x114.png">
-
-<!-- =========================
      STYLESHEETS      
 ============================== -->
-<link rel="stylesheet" href="resource/tmpl/css/bootstrap.min.css">
-<link rel="stylesheet" href="resource/tmpl/css/owl.theme.css">
-<link rel="stylesheet" href="resource/tmpl/css/owl.carousel.css">
-<link rel="stylesheet" href="resource/tmpl/css/jquery.vegas.min.css">
-<link rel="stylesheet" href="resource/tmpl/css/animate.min.css">
+<link rel="stylesheet" href="/MyRTS/resource/tmpl/css/bootstrap.min.css">
+<link rel="stylesheet" href="/MyRTS/resource/tmpl/css/owl.theme.css">
+<link rel="stylesheet" href="/MyRTS/resource/tmpl/css/owl.carousel.css">
+<link rel="stylesheet" href="/MyRTS/resource/tmpl/css/jquery.vegas.min.css">
+<link rel="stylesheet" href="/MyRTS/resource/tmpl/css/animate.min.css">
 
-<link rel="stylesheet" href="resource/tmpl/assets/icon-fonts/styles.css">
-<link rel="stylesheet" href="resource/tmpl/css/pixeden-icons.css">
+<link rel="stylesheet" href="/MyRTS/resource/tmpl/assets/icon-fonts/styles.css">
+<link rel="stylesheet" href="/MyRTS/resource/tmpl/css/pixeden-icons.css">
 
 <!-- CUSTOM STYLES -->
-<link rel="stylesheet" href="resource/tmpl/css/styles.css">
-<link rel="stylesheet" href="resource/tmpl/css/responsive.css">
+<link rel="stylesheet" href="/MyRTS/resource/tmpl/css/styles.css">
+<link rel="stylesheet" href="/MyRTS/resource/tmpl/css/responsive.css">
 
-<!-- <link href="/resource/templates/template1/css/styles.css"
-	rel="stylesheet">
-<link href="/resource/js/angular-datepicker/dist/angular-datepicker.min.css"
-	rel="stylesheet">
-
-<link rel="stylesheet"
-	href="/resource/js/angucomplete-alt/angucomplete-alt.css" />
-<link rel="stylesheet"
-	href="/resource/js/font-awesome/css/font-awesome.css" /> -->
 
 <!-- WEBFONT -->
 <link
@@ -59,30 +40,15 @@
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
 <!-- js -->
-<!-- <script type="text/javascript" src="/resource/js/jquery/jquery-2.1.4.js"></script>
-<script type="text/javascript" src="/resource/js/bootstrap/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="/resource/js/angular/angular.js"></script>
-<script type="text/javascript" src="/resource/templates/template1/js/scripts.js"></script>
-
-
-<script type="text/javascript" src="/resource/js/angucomplete-alt/angucomplete-alt.js"></script>
-<script type="text/javascript"
-	src="/resource/js/angular-datepicker/dist/angular-datepicker.min.js"></script>
-
-<script type="text/javascript" src="/resource/js/angular/angular-touch.min.js"></script>
-<script type="text/javascript" src="/resource/js/util.js"></script>
-
-<script type="text/javascript" src="/resource/js/myrts/mainpage.js"></script> -->
-
-<link
+<%-- <link
 	href="<c:url value="/resource/js/bootstrap/css/bootstrap.min.css"/>"
-	rel="stylesheet">
+	rel="stylesheet"> --%>
 <!--[if lt IE 9]>
 			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
-<link
+<%-- <link
 	href="<c:url value="/resource/templates/template1/css/styles.css"/>"
-	rel="stylesheet">
+	rel="stylesheet"> --%>
 <link rel="stylesheet"
 	href="<c:url value="/resource/js/angular-datepicker/dist/angular-datepicker.min.css"/>"
 	rel="stylesheet">
@@ -111,13 +77,14 @@
 <script src="<c:url value="/resource/js/util.js"/>"></script>
 
 <script src="<c:url value="/resource/js/myrts/mainpage.js"/>"></script>
+<script src="<c:url value="/resource/js/myrts/search.js"/>"></script>
 
 </head>
 
 <body ng-app="mainModule">
 	<div id="wrap" ng-controller="mainController">
-		<img class="vegas-background" src="resource/image/maintheme.jpg"
-			style="position: fixed; left: 0px; top: -200px; width: 1920px; height: 1080px; bottom: auto; right: auto">
+		<img class="vegas-background" src="/MyRTS/resource/image/maintheme.jpg"
+			style="position: fixed; left: 0px; top: -200px; width: 1600px; height: 1100px; bottom: auto; right: auto">
 		<!-- =========================
    PRE LOADER       
 ============================== -->
@@ -143,7 +110,7 @@
 				<span class="icon-bar"></span>
 				</button> -->
 						<!-- <div class="navbar-brand"> -->
-						<img src="resource/image/trainlogo.jpg" alt="rts"
+						<img src="/MyRTS/resource/image/trainlogo.jpg" alt="rts"
 							style="left: 0px; width: 70px; height: 70px">
 						<!-- </div> -->
 					</div>
@@ -153,9 +120,17 @@
 							class="nav navbar-nav navbar-right responsive-nav main-nav-list">
 							<li><a href="#home">Home</a></li>
 							<li><a href="#booking">Booking</a></li>
-							<li><a href="#features">Search</a></li>
+							<!-- <li><a href="#features">Features</a></li> -->
 							<li><a href="#testimonials">Testimonials</a></li>
 							<li><a href="#contact">Contact</a></li>
+							<li></li>
+							<sec:authorize access="isAnonymous()">
+								<li>
+		              				<a href="<c:url value="/member/dashboard.html"/>"> 
+		              					<i class="glyphicon glyphicon-log-in"></i>Sign In
+								</a>
+								</li>
+							</sec:authorize>
 						</ul>
 					</nav>
 				</div>
@@ -177,7 +152,8 @@
 						class="btn btn-primary custom-button green-btn">Join Us</a>
 				</div> -->
 				
-				<div class="buttons rows">
+				<!-- <div class="buttons rows"> -->
+				<div class="buttons inpage-scroll">
 					<a href="#booking" class="btn btn-primary custom-button red-btn">
 						Ready To Go
 					</a>
@@ -234,8 +210,8 @@
 		<!-- / END SEPARATOR -->
 
 
-
-		<ssection class="packages" id="booking">
+		<!-- /START BOOKING -->
+		<section class="booking" id="booking">
 			<div class="container">
 
 				<!-- SECTION HEADER -->
@@ -254,7 +230,7 @@
 					data-wow-duration="1.5s" data-wow-delay="0.15s">
 					<div class="col-sm-8 col-sm-offset-2 text-center"
 						style="padding: 20px; background-color: rgba(5, 5, 5, .8); border-radius: 25px;">
-						<form id="fmSearchTrain" name="fmSearchTrain" ng-submit="submitData(trainSearch, 'ajaxResult')">
+						<form id="fmSearchTrain" name="fmSearchTrain" ng-submit="submitData('ajaxResult')">
 							<div class="row">
 								<div class="col-sm-4 col-sm-offset-2 lead text-left">
 									Departure Station:</div>
@@ -296,7 +272,10 @@
 								</div>
 							</div>
 							<div class="row">
-								<input ng-click="count=count+1" type="submit" class="btn btn-primary custom-button blue-btn" role="button" value="Submit">
+								<input ng-click="resetForm()" type="reset" class="btn btn-primary custom-button blue-btn"
+								role="button" value="Reset" ng-disabled="!isSearchTrainFormChanged()" >
+								<input ng-click="count=count+1" type="submit" class="btn btn-primary custom-button blue-btn" 
+								role="button" value="Submit" ng-disabled="fmSearchTrain.$invalid">
 								<!-- <a href="#" class="btn btn-primary custom-button blue-btn">Submit
 								</a> -->
 							</div>
@@ -306,16 +285,14 @@
 				</div>
 
 			</div>
-			<!-- / END PACKAGES -->
-	</div>
 	<!--END CONTAINER  -->
 	</section>
 	<!-- END PACKAGES SECTION -->
 
 	<!-- =========================
-   FEATURES SECTION   
+   SEARCH SECTION   
 ============================== -->
-	<section class="features" id="features"  ng-show="count">
+	<section class="search" id="search" ng-show="count>0">
 		<div class="container">
 
 			<!-- SECTION HEADER -->
@@ -332,7 +309,7 @@
 		<!-- add -->
 		<div class="row">
 		<div class="col-sm-10 col-sm-offset-1 text-left">
-			<div id="divSelectTrain">
+			<div id="divSelectTrain" ng-show="canShow">
 				<form id="fmAddCart" name="fmAddCart"  ng-submit="addTicketsToCart()" >
 					<table width="200" class="table table-striped table-bordered">
 						<thead>
@@ -353,7 +330,7 @@
 			      		</tbody>
 					</table>
 					<div id="divAddToCart" ng-show="canShowAddToCart">
-						<button type="submit" class="col-sm-2 col-sm-offset-8 btn btn-primary btn-md"  ng-click="" ng-disabled="fmAddCart.$invalid || isAddingTickets" >Add Tickets to Cart</button>
+						<button type="submit" class="col-sm-2 col-sm-offset-8 btn btn-primary btn-md"  ng-disabled="fmAddCart.$invalid || isAddingTickets" ><a href="/MyRTS/login.html">Add Tickets to Cart</a></button>
 					</div>
 				</form>
 			</div>
@@ -363,7 +340,7 @@
 		<br>
 		<div class="row">
 			<div class="col-sm-10 col-sm-offset-1 text-left">
-				<div id="divDisplayTrainTransits"   ng-show="count>0">
+				<div id="divDisplayTrainTransits"   ng-show="canShowTransits">
 					<h3> Current Selected Train Schedule Detail </h3>
 					<h4 id="ticketPrice">Ticket Unit Price:<span> $ {{price}} </span></h4>
 					<h4 id="currTrainNo">Train Schedule: <span> # {{currSchedule.train.trainNo}}</span></h4>
@@ -405,7 +382,7 @@
 		</div>
 		<!-- / END CONTAINER -->
 	</section>
-	<!-- / END FEATURES SECTION -->
+	<!-- / END SEARCH SECTION -->
 
 
 
@@ -692,6 +669,7 @@
 		<!-- / END CONTAINER -->
 	</section>
 	<!-- / END CONTACT US SECTION-->
+	</div>
 
 	<!-- =========================
    FOOTER             
@@ -736,20 +714,19 @@
 				©2013 Zerif LLC
 			</div>
 		</div>
-		</div>
 		<!-- / END CONTAINER -->
 	</footer>
 	<!-- / END FOOOTER  -->
 
 	<!-- SCRIPTS -->
-	<script src="resource/tmpl/js/bootstrap.min.js"></script>
-	<script src="resource/tmpl/js/wow.min.js"></script>
-	<script src="resource/tmpl/js/jquery.nav.js"></script>
-	<script src="resource/tmpl/js/jquery.knob.js"></script>
-	<script src="resource/tmpl/js/owl.carousel.min.js"></script>
-	<script src="resource/tmpl/js/smoothscroll.js"></script>
-	<script src="resource/tmpl/js/jquery.vegas.min.js"></script>
-	<script src="resource/tmpl/js/zerif.js"></script>
+	<script src="/MyRTS/resource/tmpl/js/bootstrap.min.js"></script>
+	<script src="/MyRTS/resource/tmpl/js/wow.min.js"></script>
+	<script src="/MyRTS/resource/tmpl/js/jquery.nav.js"></script>
+	<script src="/MyRTS/resource/tmpl/js/jquery.knob.js"></script>
+	<script src="/MyRTS/resource/tmpl/js/owl.carousel.min.js"></script>
+	<script src="/MyRTS/resource/tmpl/js/smoothscroll.js"></script>
+	<script src="/MyRTS/resource/tmpl/js/jquery.vegas.min.js"></script>
+	<script src="/MyRTS/resource/tmpl/js/zerif.js"></script>
 
 </body>
 </html>

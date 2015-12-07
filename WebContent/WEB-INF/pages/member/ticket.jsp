@@ -19,13 +19,6 @@
     <link rel="stylesheet" type="text/css" href="http://www.shieldui.com/shared/components/latest/css/light-bootstrap/all.min.css" />
     <script type="text/javascript" src="http://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
     <script type="text/javascript" src="http://www.prepbootstrap.com/Content/js/gridData.js"></script>
- 	<!-- <style>
-    	.text-right {
-    		float: none;
-   		    margin: auto;
-    		text-align: center;
-    	}
-    </style> -->
 </head>
 <body>
     <div id="wrapper">
@@ -37,7 +30,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="dashboard.html">User Page</a>
+                <a class="navbar-brand" href="dashboard.html">RailwayTicketingSystem</a>
             </div>
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
@@ -70,7 +63,7 @@
                         </ul>
                     </li>
                     <li class="dropdown user-dropdown">
-                       <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> ***@***.com<b class="caret"></b></a>
+                       <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>  ${username }<b class="caret"></b></a>
                        <ul class="dropdown-menu">
                            <li><a href="/MyRTS/main.html"><i class="fa fa-user"></i> MainPage</a></li>
                            <li class="divider"></li>
@@ -80,91 +73,18 @@
                 </ul>
             </div>
         </nav>
-
-        <!-- <div id="page-wrapper">
-            <div class="row">
+        <div class="row">
                 <div class="col-lg-12">
-                    <h1>Hello, ***@***.com <small>Tickets </small></h1>
+                    <h1>Hello,  ${username } <small>Ticket </small></h1>
                     <div class="alert alert-success alert-dismissable">
                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                        Welcome to your RailwayTicketingSystem! 
+                        Please check you tickets below! 
                         <br />
                     </div>
                 </div>
-            </div>
-            <div class="row">
-              <div class="col-lg-3">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <h3 class="panel-title"><i class="fa fa-clock-o"></i>User's Information</h3>
-                        </div>
-                        <div class="panel-body">
-                            <div class="row alert-success">
-                                <div class="col-xs-5 text-right">
-                                    <p class="alerts-heading">343</p>
-                                    <p class="alerts-text">Orders</p>
-                                </div>
-                            </div>
-                            <div class="row alert-success">
-                                <div class="col-xs-5 text-right">
-                                    <p class="alerts-heading">1256</p>
-                                    <p class="alerts-text">Saved CreditCard</p>
-                                </div>
-                            </div>
-
-                            <div class="row alert-success">
-                                <div class="col-xs-5 text-right">
-                                    <p class="alerts-heading">11</p>
-                                    <p class="alerts-text">Stations</p>
-                                </div>
-                            </div>
-                            <div class="row alert-success">
-                                <div class="col-xs-5 text-right">
-                                    <p class="alerts-heading">11</p>
-                                    <p class="alerts-text">TotalUsers</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i>Users Activation Rate</h3>
-                        </div>
-                        <div class="panel-body">
-                            <div id="shieldui-chart2"></div>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i>All Tickets</h3>
-                        </div>
-                        <div class="panel-body">
-                            <div id="shieldui-chart2"></div>
-                        </div>
-
-                    </div>
-                </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i>Your Orders</h3>
-                        </div>
-                        <div class="panel-body">
-                            <div id="shieldui-grid1"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            /.row
         </div>
-        /#page-wrapper
-    </div> -->
+
+     </div>   
     <!-- /#wrapper -->
 
     <!--
@@ -175,108 +95,6 @@
         http://www.shieldui.com/documentation/grid/javascript/getting.started
         http://www.shieldui.com/documentation/datasource/javascript/getting.started
     -->
-   <!--  <script type="text/javascript">
-        jQuery(function ($) {
-        	var orderData = [];
-        	$.ajax({
-				url: "/MyRTS/admin/orderData",
-				type: "get",
-				dataType: "json",
-				async: false,
-				success: function(data) {
-					orderData = data;
-				}
-			});
-            var performance = [12, 43, 34, 22, 12, 33, 4, 17, 22, 34, 54, 67],
-                visits = [123, 323, 443, 32],
-                budget = [23, 19, 11, 134, 242, 352, 435, 22, 637, 445, 555, 57],
-                sales = [11, 9, 31, 34, 42, 52, 35, 22, 37, 45, 55, 57];
-/* 
-            $("#shieldui-chart1").shieldChart({
-                primaryHeader: {
-                    text: "Visitors"
-                },
-                exportOptions: {
-                    image: false,
-                    print: false
-                },
-                dataSeries: [{
-                    seriesType: "area",
-                    collectionAlias: "Q Data",
-                    data: performance
-                }]
-            });
-
-            $("#shieldui-chart2").shieldChart({
-                primaryHeader: {
-                    text: "Logins Per week"
-                },
-                exportOptions: {
-                    image: false,
-                    print: false
-                },
-                seriesSettings: {
-                    donut: {
-                        enablePointSelection: true
-                    }
-                },
-                dataSeries: [{
-                    seriesType: "donut",
-                    collectionAlias: "logins",
-                    data: visits
-                }]
-            });
-
-            $("#shieldui-chart3").shieldChart({
-                primaryHeader: {
-                    text: "Budget"
-                },
-                dataSeries: [{
-                    seriesType: "line",
-                    collectionAlias: "Budget",
-                    data: budget
-                }]
-            }); */
-
-            /* $("#shieldui-chart4").shieldChart({
-                primaryHeader: {
-                    text: "Sales"87
-                },
-                dataSeries: [{
-                    seriesType: "bar",
-                    collectionAlias: "sales",
-                    data: sales
-                }]
-            }); */
-			
-            $("#shieldui-grid1").shieldGrid({
-                dataSource: {
-                    data: orderData
-                },
-                sorting: {
-                    multiple: true
-                },
-                paging: {
-                    pageSize: 12,
-                    pageLinksCount: 4
-                },
-                selection: {
-                    type: "row",
-                    multiple: true,
-                    toggle: false
-                },
-                columns: [
-                    { field: "orderNo", title: "OrderNumber" },
-                    { field: "user.email", title: "Email" },
-                    { field: "user.userId", title: "UserID"},
-            		{ field: "date", title: "OrderDate" },
-                    { field: "creditCardNo", title: "CreditCardNumber"},
-                    { field: "status", title: "OrderStatus"}
-                ]
-            });
-        });
-    </script> -->
-    
-    
+  
 </body>
 </html>

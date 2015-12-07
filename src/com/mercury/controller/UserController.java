@@ -153,13 +153,14 @@ public class UserController {
 
 	@RequestMapping(value = "/register/newuser", method = RequestMethod.POST)
 	public ModelAndView registerPage(@ModelAttribute("user") User user,
-			BindingResult result) {
+			BindingResult result) throws Exception {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("/hello");
 		mav.addObject("title", "This is register page.");
 		UserRole ur = new UserRole(100, "ROLE_USER");
 		user.setRole(ur);
 		user.setEnable(false);
+		user.setPassword(user.MD5Hashing(user.getPassword()));
 		System.out.println(user.getFirstName());
 		user.geneateActivationCode();
 		while (this.customUserDetailsService.checkActivationCode(user

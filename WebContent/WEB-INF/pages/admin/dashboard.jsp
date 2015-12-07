@@ -49,7 +49,7 @@
                     <li><a href="train.html"><i class="fa fa-globe"></i> Train</a></li>
                     <li><a href="schedule.html"><i class="fa fa-list-ol"></i> Schedule</a></li>
                     <li><a href="station.html"><i class="fa fa-font"></i> Station</a></li> 
-                    <li><a href="userTable.html"><i class="fa fa-list-ul"></i> UserTable</a></li>                   
+                    <li><a href="usertable.html"><i class="fa fa-list-ul"></i> UserTable</a></li>                   
                 </ul>
                 <ul class="nav navbar-nav navbar-right navbar-user">
                     <li class="dropdown messages-dropdown">
@@ -153,40 +153,7 @@
 
                     </div>
                 </div>
-	               <!--  <div class="col-lg-9">
-	                    <div class="panel panel-primary">
-	                        <div class="panel-heading">
-	                            <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i> Traffic Estimations for last 30 days</h3>
-	                        </div>
-	                        <div class="panel-body">
-	                            <div id="shieldui-chart1"></div>
-	                        </div>
-	                    </div>
-	                </div> -->
             </div>
-          <!--   <div class="row">
-             
-                <div class="col-lg-4">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i> Budget</h3>
-                        </div>
-                        <div class="panel-body">
-                            <div id="shieldui-chart3"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i> Purchases</h3>
-                        </div>
-                        <div class="panel-body">
-                            <div id="shieldui-chart4"></div>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
             <div class="row">
                 <div class="col-lg-12">
                     <div class="panel panel-primary">

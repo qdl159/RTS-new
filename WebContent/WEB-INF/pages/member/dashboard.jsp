@@ -37,7 +37,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="dashboard.html">User Page</a>
+                <a class="navbar-brand" href="dashboard.html">RailwayTicketingSystem</a>
             </div>
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
@@ -80,6 +80,7 @@
                 </ul>
             </div>
         </nav>
+
 
         <div id="page-wrapper">
             <div class="row">
@@ -127,28 +128,6 @@
                         </div>
                     </div>
                 </div>
-             <!--    <div class="col-lg-4">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i>Users Activation Rate</h3>
-                        </div>
-                        <div class="panel-body">
-                            <div id="shieldui-chart2"></div>
-                        </div>
-
-                    </div>
-                </div> -->
-              <!--   <div class="col-lg-4">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i>All Tickets</h3>
-                        </div>
-                        <div class="panel-body">
-                            <div id="shieldui-chart2"></div>
-                        </div>
-
-                    </div>
-                </div> -->
             <div class="row">
                 <div class="col-lg-12">
                     <div class="panel panel-primary">
@@ -191,64 +170,6 @@
                 visits = [123, 323, 443, 32],
                 budget = [23, 19, 11, 134, 242, 352, 435, 22, 637, 445, 555, 57],
                 sales = [11, 9, 31, 34, 42, 52, 35, 22, 37, 45, 55, 57];
-/* 
-            $("#shieldui-chart1").shieldChart({
-                primaryHeader: {
-                    text: "Visitors"
-                },
-                exportOptions: {
-                    image: false,
-                    print: false
-                },
-                dataSeries: [{
-                    seriesType: "area",
-                    collectionAlias: "Q Data",
-                    data: performance
-                }]
-            });
-
-            $("#shieldui-chart2").shieldChart({
-                primaryHeader: {
-                    text: "Logins Per week"
-                },
-                exportOptions: {
-                    image: false,
-                    print: false
-                },
-                seriesSettings: {
-                    donut: {
-                        enablePointSelection: true
-                    }
-                },
-                dataSeries: [{
-                    seriesType: "donut",
-                    collectionAlias: "logins",
-                    data: visits
-                }]
-            });
-
-            $("#shieldui-chart3").shieldChart({
-                primaryHeader: {
-                    text: "Budget"
-                },
-                dataSeries: [{
-                    seriesType: "line",
-                    collectionAlias: "Budget",
-                    data: budget
-                }]
-            }); */
-
-            /* $("#shieldui-chart4").shieldChart({
-                primaryHeader: {
-                    text: "Sales"
-                },
-                dataSeries: [{
-                    seriesType: "bar",
-                    collectionAlias: "sales",
-                    data: sales
-                }]
-            }); */
-			
             $("#shieldui-grid1").shieldGrid({
                 dataSource: {
                     data: orderData

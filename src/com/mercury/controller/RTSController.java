@@ -97,7 +97,7 @@ public class RTSController {
 
 	@RequestMapping(value="main1", method=RequestMethod.GET)
 	public String hello1() {
-		return "hello1";
+		return "hello2";
 	}
 
 

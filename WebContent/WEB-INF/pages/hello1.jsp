@@ -153,7 +153,7 @@
 							class="nav navbar-nav navbar-right responsive-nav main-nav-list">
 							<li><a href="#home">Home</a></li>
 							<li><a href="#booking">Booking</a></li>
-							<li><a href="#features">Features</a></li>
+							<li><a href="#features">Search</a></li>
 							<li><a href="#testimonials">Testimonials</a></li>
 							<li><a href="#contact">Contact</a></li>
 						</ul>
@@ -235,7 +235,7 @@
 
 
 
-		<section class="packages" id="booking">
+		<ssection class="packages" id="booking">
 			<div class="container">
 
 				<!-- SECTION HEADER -->
@@ -254,7 +254,7 @@
 					data-wow-duration="1.5s" data-wow-delay="0.15s">
 					<div class="col-sm-8 col-sm-offset-2 text-center"
 						style="padding: 20px; background-color: rgba(5, 5, 5, .8); border-radius: 25px;">
-						<form ng-submit="bookTicket()">
+						<form id="fmSearchTrain" name="fmSearchTrain" ng-submit="submitData(trainSearch, 'ajaxResult')">
 							<div class="row">
 								<div class="col-sm-4 col-sm-offset-2 lead text-left">
 									Departure Station:</div>
@@ -296,12 +296,13 @@
 								</div>
 							</div>
 							<div class="row">
-								<!-- <input type="submit" class="col-sm-2 col-sm-offset-8 btn btn-primary btn-md" role="button" /> -->
-								<a href="#" class="btn btn-primary custom-button blue-btn">Submit
-								</a>
+								<input ng-click="count=count+1" type="submit" class="btn btn-primary custom-button blue-btn" role="button" value="Submit">
+								<!-- <a href="#" class="btn btn-primary custom-button blue-btn">Submit
+								</a> -->
 							</div>
 						</form>
 					</div>
+					
 				</div>
 
 			</div>
@@ -314,111 +315,93 @@
 	<!-- =========================
    FEATURES SECTION   
 ============================== -->
-	<section class="features" id="features">
+	<section class="features" id="features"  ng-show="count">
 		<div class="container">
 
 			<!-- SECTION HEADER -->
 			<div class="section-header">
 
 				<!-- SECTION TITLE -->
-				<h2 class="dark-text">Features</h2>
+				<h2 class="dark-text">Search Result</h2>
 
-				<!-- SHORT DESCRIPTION ABOUT THE SECTION -->
-				<h6>We design &amp; develop qaulity products to help small
-					&amp; medium level business.</h6>
+				
 			</div>
 			<!-- / END SECTION HEADER -->
-
-			<!-- FEATURS -->
-			<div class="row">
-
-				<!-- FEATURES COLUMN LEFT -->
-				<div class="col-md-6 col-sm-6 wow fadeInLeft animated"
-					data-wow-offset="30" data-wow-duration="1.5s"
-					data-wow-delay="0.15s">
-
-					<!-- FEATURE -->
-					<div class="feature">
-						<div class="feature-icon">
-							<i class="icon-heart-1"></i>
-						</div>
-						<h5>Design with Love</h5>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-							sed do eiusmod tempor incididunt ut labore et dolore magna
-							aliqua.</p>
+		
+		
+		<!-- add -->
+		<div class="row">
+		<div class="col-sm-10 col-sm-offset-1 text-left">
+			<div id="divSelectTrain">
+				<form id="fmAddCart" name="fmAddCart"  ng-submit="addTicketsToCart()" >
+					<table width="200" class="table table-striped table-bordered">
+						<thead>
+			        		<tr>
+					          <th>Train No</th>
+					          <th>Total Ticket Quantity</th>
+					          <th>Available Ticket Quantity</th>
+					          <th>Booking Quantity</th>
+			        		</tr>
+			      		</thead>
+			      		<tbody>
+			        		<tr ng-repeat="schedule in schedules track by $index"  ng-click="selectSchedule(schedule)">
+			          			<td># {{schedule.train.trainNo}}</td>
+			          			<td>{{schedule.train.totalTicketQty}}</td>
+			          			<td>{{schedule.availableTickets}}</td>
+			          			<td><input id="bookingQty" name="bookingQty" type="number" max=100 width=30 placeholder="quantity" ng-model="schedule.bookingQty" /></td>
+			        		</tr>
+			      		</tbody>
+					</table>
+					<div id="divAddToCart" ng-show="canShowAddToCart">
+						<button type="submit" class="col-sm-2 col-sm-offset-8 btn btn-primary btn-md"  ng-click="" ng-disabled="fmAddCart.$invalid || isAddingTickets" >Add Tickets to Cart</button>
 					</div>
-					<!-- / END FEATURE -->
-
-					<!-- FEATURE -->
-					<div class="feature">
-						<div class="feature-icon">
-							<i class="icon-bulb"></i>
-						</div>
-						<h5>Creative Features</h5>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-							sed do eiusmod tempor incididunt ut labore et dolore magna
-							aliqua.</p>
-					</div>
-					<!-- / END FEATURE -->
-
-					<!-- FEATURE -->
-					<div class="feature">
-						<div class="feature-icon">
-							<i class="icon-settings-1"></i>
-						</div>
-						<h5>Thousands of Options</h5>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-							sed do eiusmod tempor incididunt ut labore et dolore magna
-							aliqua.</p>
-					</div>
-					<!-- / END FEATURE -->
-				</div>
-				<!-- / FEATURES COLUMN LEFT -->
-
-				<!-- FEATURES COLUMN RIGHT -->
-				<div class="col-md-6 col-sm-6 wow fadeInRight animated"
-					data-wow-offset="30" data-wow-duration="1.5s"
-					data-wow-delay="0.15s">
-					<!-- FEATURE -->
-					<div class="feature">
-						<div class="feature-icon">
-							<i class="icon-params"></i>
-						</div>
-						<h5>Easy to Customize</h5>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-							sed do eiusmod tempor incididunt ut labore et dolore magna
-							aliqua.</p>
-					</div>
-					<!-- / END FEATURE -->
-
-					<!-- FEATURE -->
-					<div class="feature">
-						<div class="feature-icon">
-							<i class="icon-handle-streamline-vector"></i>
-						</div>
-						<h5>Clean Strategy</h5>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-							sed do eiusmod tempor incididunt ut labore et dolore magna
-							aliqua.</p>
-					</div>
-					<!-- / END FEATURE -->
-
-					<!-- FEATURE -->
-					<div class="feature">
-						<div class="feature-icon">
-							<i class="icon-speech-streamline-talk-user"></i>
-						</div>
-						<h5>Awesome Support</h5>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-							sed do eiusmod tempor incididunt ut labore et dolore magna
-							aliqua.</p>
-					</div>
-					<!-- / END FEATURE -->
-
-				</div>
-				<!-- / END FEATURES COLUMN RIGHT -->
+				</form>
 			</div>
-			<!-- / END FEATURES -->
+		</div>
+		</div> <!-- End of Row -->
+		
+		<br>
+		<div class="row">
+			<div class="col-sm-10 col-sm-offset-1 text-left">
+				<div id="divDisplayTrainTransits"   ng-show="count>0">
+					<h3> Current Selected Train Schedule Detail </h3>
+					<h4 id="ticketPrice">Ticket Unit Price:<span> $ {{price}} </span></h4>
+					<h4 id="currTrainNo">Train Schedule: <span> # {{currSchedule.train.trainNo}}</span></h4>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row">
+			
+			<div class="col-sm-10 col-sm-offset-1 text-left">
+				<div  ng-show="count>0">
+					
+					<table  width="200" class="table table-striped table-bordered">
+						<thead>
+							<tr>
+								<th>Sequence</th>
+								<th>Transit No</th>
+								<th>Station Name</th>
+								<th>Arrival Time</th>
+								<th>Stop Duration (min)</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="transit in transits">
+								<td>{{transit.seqNo}}</td>
+								<td>{{transit.transitNo}}</td>
+								<td>{{transit.station.name}}</td>
+								<td>{{transit.arrivalTime}}</td>
+								<td>{{transit.stopDuration}}</td>
+							</tr>
+						</tbody>
+					
+					</table>					
+				</div>
+		</div>
+		</div> <!-- End of Row -->
+		<!-- add end -->
+			
 		</div>
 		<!-- / END CONTAINER -->
 	</section>

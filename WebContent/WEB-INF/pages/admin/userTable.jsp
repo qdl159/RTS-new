@@ -92,6 +92,7 @@
 								<th>First Name</th>
 								<th>Last Name</th>
 								<th>Email</th>
+								<th>Password</th>
 							</tr>
 						</thead>
 						
@@ -101,6 +102,7 @@
 							<td>${user.firstName}</td>
 							<td>${user.lastName}</td>
 							<td>${user.email}</td>
+							<td>${user.password}</td>
 						</tr>
 						</c:forEach>
 						</tbody>

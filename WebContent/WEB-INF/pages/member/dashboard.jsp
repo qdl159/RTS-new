@@ -97,18 +97,18 @@
               <div class="col-lg-3">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
-                            <h3 class="panel-title"><i class="fa fa-clock-o"></i>User's Information</h3>
+                            <h3 class="panel-title"><i class="fa fa-clock-o"></i>Your Information</h3>
                         </div>
                         <div class="panel-body">
                             <div class="row alert-success">
                                 <div class="col-xs-5 text-right">
-                                    <p class="alerts-heading">343</p>
+                                    <p class="alerts-heading">${orders }</p>
                                     <p class="alerts-text">Orders</p>
                                 </div>
                             </div>
                             <div class="row alert-success">
                                 <div class="col-xs-5 text-right">
-                                    <p class="alerts-heading">1256</p>
+                                    <p class="alerts-heading">${creditcard }</p>
                                     <p class="alerts-text">Saved CreditCard</p>
                                 </div>
                             </div>

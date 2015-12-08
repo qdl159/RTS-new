@@ -204,27 +204,27 @@
 				<!-- Station -->
 				<table  class="table table-bordered table-hover">
 					<tr>
-						<td>name:</td>
+						<td>Name:</td>
 						<td><input type="text" ng-model="s.name" /></td>
 					</tr>
 					<tr>
-						<td>address:</td>
+						<td>Address:</td>
 						<td><input type="text" ng-model="s.address" /></td>
 					</tr>
 					<tr>
-						<td>city:</td>
+						<td>City:</td>
 						<td><input type="text" ng-model="s.city" /></td>
 					</tr>
 					<tr>
-						<td>zipCode:</td>
+						<td>ZipCode:</td>
 						<td><input type="text" ng-model="s.zipCode" /></td>
 					</tr>
 					<tr>
-						<td>state:</td>
+						<td>State:</td>
 						<td><input type="text" ng-model="s.state" /></td>
 					</tr>
 					<tr>
-						<td>enable:</td>
+						<td>Enable:</td>
 						<td><input type="text" ng-model="s.enable" /></td>
 					</tr>
 					<tr>

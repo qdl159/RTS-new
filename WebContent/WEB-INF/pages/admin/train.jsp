@@ -128,16 +128,16 @@
 				<form id="f" action="submitTrain.html" method="POST">
 					<table class="table table-bordered table-hover">
 						<tr>
-							<td>trainNo:</td>
+							<td>TrainNo:</td>
 							<td><input type="text" name="trainNo" id="trainNo" size="24"/></td>
 						</tr>
 						<tr>
-							<td>totalTicketQty:</td>
+							<td>TotalTicketQty:</td>
 							<td><input type="text" name="totalTicketQty"
 								id="totalTicketQty" size="24"/></td>
 						</tr>
 						<tr>
-							<td>enable:</td>
+							<td>Enable:</td>
 							<td><input type="text" name="enable" id="enable" size="24"/></td>
 						</tr>
 

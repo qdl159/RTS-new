@@ -15,13 +15,15 @@
 <!-- =========================
      STYLESHEETS      
 ============================== -->
+<link rel="stylesheet"
+	href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 <link rel="stylesheet" href="/MyRTS/resource/tmpl/css/bootstrap.min.css">
 <link rel="stylesheet" href="/MyRTS/resource/tmpl/css/owl.theme.css">
 <link rel="stylesheet" href="/MyRTS/resource/tmpl/css/owl.carousel.css">
 <link rel="stylesheet" href="/MyRTS/resource/tmpl/css/jquery.vegas.min.css">
 <link rel="stylesheet" href="/MyRTS/resource/tmpl/css/animate.min.css">
 
-<link rel="stylesheet" href="/MyRTS/resource/tmpl/assets/icon-fonts/styles.css">
+<link rel="stylesheet" href="<c:url value="/resource/tmpl/assets/icon-fonts/styles.css"/>">
 <link rel="stylesheet" href="/MyRTS/resource/tmpl/css/pixeden-icons.css">
 
 <!-- CUSTOM STYLES -->
@@ -83,8 +85,8 @@
 
 <body ng-app="mainModule">
 	<div id="wrap" ng-controller="mainController">
-		<img class="vegas-background" src="/MyRTS/resource/image/maintheme.jpg"
-			style="position: fixed; left: 0px; top: -200px; width: 1600px; height: 1100px; bottom: auto; right: auto">
+		<!-- <img class="vegas-background" src="/MyRTS/resource/image/maintheme.jpg"
+			style="position: fixed; left: 0px; top: -200px; width: 1600px; height: 1100px; bottom: auto; right: auto"> -->
 		<!-- =========================
    PRE LOADER       
 ============================== -->
@@ -103,12 +105,7 @@
 				<div class="container">
 
 					<div class="navbar-header responsive-logo">
-						<!-- <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#bs-navbar-collapse">
-				<span class="sr-only">Toggle navigation</span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				</button> -->
+						
 						<!-- <div class="navbar-brand"> -->
 						<img src="/MyRTS/resource/image/trainlogo.jpg" alt="rts"
 							style="left: 0px; width: 70px; height: 70px">
@@ -121,15 +118,34 @@
 							<li><a href="#home">Home</a></li>
 							<li><a href="#booking">Booking</a></li>
 							<!-- <li><a href="#features">Features</a></li> -->
-							<li><a href="#testimonials">Testimonials</a></li>
 							<li><a href="#contact">Contact</a></li>
-							<li></li>
 							<sec:authorize access="isAnonymous()">
 								<li>
 		              				<a href="<c:url value="/member/dashboard.html"/>"> 
-		              					<i class="glyphicon glyphicon-log-in"></i>Sign In
+		              					<span class="ion-log-in"></span>Sign In
 								</a>
 								</li>
+							</sec:authorize>
+							<sec:authorize access="hasRole('ROLE_USER')">
+								<li>
+									<a href="<c:url value="/member/dashboard.html"/>">
+										Profile
+									</a>
+								</li>
+							</sec:authorize>
+							<sec:authorize access="hasRole('ROLE_ADMIN')">
+								<li>
+									<a href="<c:url value="/admin/dashboard.html"/>">
+										Profile
+									</a>
+								</li>
+							</sec:authorize>
+							<sec:authorize access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')">
+								<li>
+			              			<a href="<c:url value='/j_spring_security_logout'/>"/>
+			              				<span class="ion-log-out"></span>Log Out
+			              			</a>
+			            		</li>
 							</sec:authorize>
 						</ul>
 					</nav>
@@ -141,47 +157,44 @@
 			<div class="container">
 
 				<!-- HEADING -->
-				<h1 class="intro wow fadeInLeft antimated" data-wow-offset="200"
-					data-wow-duration="2.5s" data-wow-delay="0.15s">To come, to
-					see, to conquer.</h1>
-
-				<!-- CALL TO ACTION BUTTONS -->
-				<!-- <div class="buttons inpage-scroll">
-					<a href="#works" class="btn btn-primary custom-button red-btn">Ready
-						To Go</a> <a href="#pricingtable"
-						class="btn btn-primary custom-button green-btn">Join Us</a>
-				</div> -->
+				<h1 class="intro wow fadeInLeft antimated" data-wow-offset="500"
+					data-wow-duration="4s" data-wow-delay="0.15s">TO TRAVEL IS TO LIVE</h1>
+				<h3 class="wow fadeInRight antimated white-text" data-wow-offset="500"
+					data-wow-duration="4s" data-wow-delay="0.15s">You Don't Need Magic To Disappear.
+					All You Need Is A Destination.</h3>
 				
-				<!-- <div class="buttons rows"> -->
-				<div class="buttons inpage-scroll">
-					<a href="#booking" class="btn btn-primary custom-button red-btn">
-						Ready To Go
-					</a>
+				<div class="row buttons inpage-scroll wow fadeInRight animated"
+					data-wow-offset="30" data-wow-duration="1.5s"
+						data-wow-delay="0.15s">
+					
+						<a href="#booking" class="btn btn-primary custom-button red-btn">
+							Ready To Go
+						</a>
+					
 					<sec:authorize access="isAnonymous()">
 		              		<a href="<c:url value="/login.html"/>" class="btn btn-primary custom-button green-btn">
 		              			Sign In
 							</a>							
 					</sec:authorize>
-					
 				</div>
 
 				<!-- 3 SHORT MESSAGE ABOUT COMPANY -->
 				<div class="row bottom-message-section">
 					<div class="col-lg-4 col-sm-4">
 						<div class="short-text">
-							<i class="icon icon-fontawesome-webfont-358"></i> Find your
+							<span class="ion-android-favorite red-text"></span> Find your
 							destinations
 						</div>
 					</div>
 					<div class="col-lg-4 col-sm-4">
 						<div class="short-text">
-							<i class="icon-fontawesome-webfont-286"></i> Experience best
+							<span class="ion-android-favorite red-text"></span> Experience best
 							services
 						</div>
 					</div>
 					<div class="col-lg-4 col-sm-4">
 						<div class="short-text">
-							<i class="icon-fontawesome-webfont-347"></i> Have nice journeys
+							<span class="ion-android-favorite red-text"></span> Have nice journeys
 						</div>
 					</div>
 				</div>
@@ -199,12 +212,10 @@
 			<div class="color-overlay">
 				<h3 class="container text wow fadeInLeft animated"
 					data-wow-offset="30" data-wow-duration="1.5s"
-					data-wow-delay="0.15s">We have 100+ happy customers in last
-					few years. You can check what they're saying about us.</h3>
-				<div class="wow fadeInRight animated" data-wow-offset="30"
-					data-wow-duration="1.5s" data-wow-delay="0.15s">
-					<a href="" class="btn btn-primary custom-button green-btn">TESTIMONIALS</a>
-				</div>
+					data-wow-delay="0.15s">Adventurous life lies ahead.</h3>
+				<h3 class="container text wow fadeInRight animated"
+					data-wow-offset="30" data-wow-duration="1.5s"
+					data-wow-delay="0.15s">What are you still waiting for?</h3>
 			</div>
 		</section>
 		<!-- / END SEPARATOR -->
@@ -229,10 +240,10 @@
 				<div class="wow fadeInLeft animated" data-wow-offset="30"
 					data-wow-duration="1.5s" data-wow-delay="0.15s">
 					<div class="col-sm-8 col-sm-offset-2 text-center"
-						style="padding: 20px; background-color: rgba(5, 5, 5, .8); border-radius: 25px;">
+						style="padding: 20px; background-color: rgba(248, 236, 236, .2); border-radius: 10px;">
 						<form id="fmSearchTrain" name="fmSearchTrain" ng-submit="submitData('ajaxResult')">
 							<div class="row">
-								<div class="col-sm-4 col-sm-offset-2 lead text-left">
+								<div class="col-sm-4 col-sm-offset-1 lead text-left white-text">
 									Departure Station:</div>
 								<div class="col-sm-4">
 									<div angucomplete-alt id="ex14"
@@ -245,7 +256,7 @@
 								</div>
 							</div>
 							<div class="row">
-								<div class="col-sm-4 col-sm-offset-2 lead text-left">
+								<div class="col-sm-4 col-sm-offset-1 lead text-left white-text">
 									Arrival Station:</div>
 								<div class="col-sm-4">
 									<div angucomplete-alt id="ex14"
@@ -259,7 +270,7 @@
 							</div>
 
 							<div class="row">
-								<div class="col-sm-4 col-sm-offset-2 lead text-left">
+								<div class="col-sm-4 col-sm-offset-1 lead text-left white-text">
 									Departure Date:</div>
 								<div class="col-sm-4 dropdown text-left">
 									<datepicker date-min-limit="2015/10/08"
@@ -272,10 +283,10 @@
 								</div>
 							</div>
 							<div class="row">
-								<input ng-click="resetForm()" type="reset" class="btn btn-primary custom-button blue-btn"
+								<input ng-click="resetForm()" type="reset" class="btn btn-primary custom-button red-btn"
 								role="button" value="Reset" ng-disabled="!isSearchTrainFormChanged()" >
 								<input ng-click="count=count+1" type="submit" class="btn btn-primary custom-button blue-btn" 
-								role="button" value="Submit" ng-disabled="fmSearchTrain.$invalid">
+								role="button" value="Submit" ng-disabled="fmSearchTrain.$invalid" onclick="window.location='<c:url value="/main.html#search"/>';">
 								<!-- <a href="#" class="btn btn-primary custom-button blue-btn">Submit
 								</a> -->
 							</div>
@@ -384,228 +395,22 @@
 	</section>
 	<!-- / END SEARCH SECTION -->
 
-
-
 	<!-- =========================
-   NEWSETTER          
+   SEPARATOR TWO     
 ============================== -->
 
-	<section class="newsletter">
-		<div class="container">
-			<h3 class="white-text wow fadeInLeft animated" data-wow-offset="30"
-				data-wow-duration="1.5s" data-wow-delay="0.15s">Stay in touch</h3>
-			<!-- NEWSLETTER SECTION HEADING -->
-			<div class="sub-heading white-text wow fadeInRight animated"
-				data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
-				Sign Up for Email Updates on on News &amp; Offers</div>
-
-			<!-- SUBSCRIPTION FORM -->
-			<form action="#" class="subscription wow fadeInLeft animated"
-				data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s"
-				role="form">
-				<input type="email" placeholder="Enter email"
-					class="form-control input-box">
-				<button class="btn btn-primary custom-button red-btn">Sign
-					Up</button>
-			</form>
-			<!-- / END SUBSCRIPTION FORM -->
-
-		</div>
-		<!-- / END CONTAINER -->
-	</section>
-	<!-- / END NEWSLETTER SECTION -->
-
-	<!-- =========================
-   TESTIMONIAL        
-============================== -->
-
-	<section class="testimonial" id="testimonials">
-		<div class="container">
-
-			<!-- SECTION HEADER -->
-			<div class="section-header">
-
-				<!-- SECTION TITLE -->
-				<h2 class="white-text">Testimonials</h2>
-
-				<!-- SHORT DESCRIPTION ABOUT THE SECTION -->
-				<h6 class="white-text">We have worked with hundreds of clients.
-					Check what our awesome happy clients saying about us.</h6>
+		<section class="separator-two">
+			<div class="color-overlay">
+				<h3 class="container text wow fadeInLeft animated"
+					data-wow-offset="30" data-wow-duration="1.5s"
+					data-wow-delay="0.15s">Adventurous life waits ahead.</h3>
+				<h3 class="container text wow fadeInRight animated"
+					data-wow-offset="30" data-wow-duration="1.5s"
+					data-wow-delay="0.15s">What are you still looking for?</h3>
 			</div>
-			<!-- / END SECTION HEADER -->
-
-			<!-- CLIENT FEEDBACKS -->
-			<div class="row wow fadeInRight animated" data-wow-offset="30"
-				data-wow-duration="1.5s" data-wow-delay="0.15s">
-				<div class="col-md-12">
-					<div id="client-feedbacks" class="owl-carousel owl-theme">
-
-						<!-- SINGLE FEEDBACK BOX-->
-						<div class="feedback-box">
-
-							<!-- MESSAGE OF THE CLIENT -->
-							<div class="message">“Called days. Image kind beginning
-								have. Herb set kind herb. Wherein saying third was, every land
-								moveth also bearing hath bring had give god gathered behold open
-								cattle after a, from third male subdue multiply divided void
-								cattle winged. Herb set kind herb. multiply divided void cattle
-								winged. Herb set kind herb.”</div>
-
-							<!-- CLIENT INFORMATION -->
-							<div class="client">
-								<div class="quote red-text">
-									<i class="icon-fontawesome-webfont-294"></i>
-								</div>
-								<div class="client-info">
-									<a class="client-name" href="">Frank Willian</a>
-									<div class="client-company">CEO, AbcD Network</div>
-								</div>
-								<div class="client-image hidden-xs">
-									<img src="images/clients-pic/1.jpg" alt="">
-								</div>
-							</div>
-							<!-- / END CLIENT INFORMATION-->
-						</div>
-						<!-- / END SINGLE FEEDBACK BOX-->
-
-						<div class="feedback-box">
-							<div class="message">“Called days. Image kind beginning
-								have. Herb set kind herb. Wherein saying third was, every land
-								moveth also bearing hath bring had give god gathered behold open
-								cattle after a, from third male subdue multiply divided void
-								cattle winged. Herb set kind herb. multiply divided void cattle
-								winged. Herb set kind herb.”</div>
-							<div class="client">
-								<div class="quote green-text">
-									<i class="icon-fontawesome-webfont-294"></i>
-								</div>
-								<div class="client-info">
-									<a class="client-name" href="">David Clyne</a>
-									<div class="client-company">CEO, Zyxw</div>
-								</div>
-								<div class="client-image hidden-xs">
-									<img src="images/clients-pic/2.jpg" alt="">
-								</div>
-							</div>
-						</div>
-
-						<div class="feedback-box">
-							<div class="message">“Called days. Image kind beginning
-								have. Herb set kind herb. Wherein saying third was, every land
-								moveth also bearing hath bring had give god gathered behold open
-								cattle after a, from third male subdue multiply divided void
-								cattle winged. Herb set kind herb. multiply divided void cattle
-								winged. Herb set kind herb.”</div>
-							<div class="client">
-								<div class="quote blue-text">
-									<i class="icon-fontawesome-webfont-294"></i>
-								</div>
-								<div class="client-info">
-									<a class="client-name" href="">Keith McCarthy</a>
-									<div class="client-company">Manager, XYZ Inc.</div>
-								</div>
-								<div class="client-image hidden-xs">
-									<img src="images/clients-pic/3.jpg" alt="">
-								</div>
-							</div>
-						</div>
-
-						<div class="feedback-box">
-							<div class="message">“Called days. Image kind beginning
-								have. Herb set kind herb. Wherein saying third was, every land
-								moveth also bearing hath bring had give god gathered behold open
-								cattle after a, from third male subdue multiply divided void
-								cattle winged. Herb set kind herb. multiply divided void cattle
-								winged. Herb set kind herb.”</div>
-							<div class="client">
-								<div class="quote red-text">
-									<i class="icon-fontawesome-webfont-294"></i>
-								</div>
-								<div class="client-info">
-									<a class="client-name" href="">Frank Willian</a>
-									<div class="client-company">CEO, AbcD Network</div>
-								</div>
-								<div class="client-image hidden-xs">
-									<img src="images/clients-pic/2.jpg" alt="">
-								</div>
-							</div>
-						</div>
-
-						<div class="feedback-box">
-							<div class="message">“Called days. Image kind beginning
-								have. Herb set kind herb. Wherein saying third was, every land
-								moveth also bearing hath bring had give god gathered behold open
-								cattle after a, from third male subdue multiply divided void
-								cattle winged. Herb set kind herb. multiply divided void cattle
-								winged. Herb set kind herb.”</div>
-							<div class="client">
-								<div class="quote green-text">
-									<i class="icon-fontawesome-webfont-294"></i>
-								</div>
-								<div class="client-info">
-									<a class="client-name" href="">David Clyne</a>
-									<div class="client-company">CEO, Zyxw</div>
-								</div>
-								<div class="client-image hidden-xs">
-									<img src="images/clients-pic/3.jpg" alt="">
-								</div>
-							</div>
-						</div>
-
-						<div class="feedback-box">
-							<div class="message">“Called days. Image kind beginning
-								have. Herb set kind herb. Wherein saying third was, every land
-								moveth also bearing hath bring had give god gathered behold open
-								cattle after a, from third male subdue multiply divided void
-								cattle winged. Herb set kind herb. multiply divided void cattle
-								winged. Herb set kind herb.”</div>
-							<div class="client">
-								<div class="quote blue-text">
-									<i class="icon-fontawesome-webfont-294"></i>
-								</div>
-								<div class="client-info">
-									<a class="client-name" href="">Keith McCarthy</a>
-									<div class="client-company">Manager, XYZ Inc.</div>
-								</div>
-								<div class="client-image hidden-xs">
-									<img src="images/clients-pic/1.jpg" alt="">
-								</div>
-							</div>
-						</div>
-
-					</div>
-					<!-- / END FEEDBACKS-->
-				</div>
-				<!-- / END COLUMN -->
-			</div>
-			<!-- / END ROW -->
-
-		</div>
-		<!-- / END CONTAINER -->
-	</section>
-	<!-- / END TESTIMONIAL SECTION -->
-
-	<!-- =========================
-   PURCHASE NOW       
-============================== -->
-
-	<section class="purchase-now">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-9">
-					<h3 class="white-text wow fadeInLeft animated" data-wow-offset="30"
-						data-wow-duration="1.5s" data-wow-delay="0.15s">Hey, We're at
-						the finishing line. Enjoyed the template?</h3>
-				</div>
-				<div class="col-md-3 wow fadeInRight animated" data-wow-offset="30"
-					data-wow-duration="1.5s" data-wow-delay="0.15s">
-					<a href="" class="btn btn-primary custom-button red-btn">Purchase
-						Now</a>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- / END PURCHASE NOW SECTION-->
+		</section>
+		<!-- / END SEPARATOR -->
+	
 
 	<!-- =========================
    CONTACT US         
@@ -680,38 +485,42 @@
 
 			<!-- COMPANY ADDRESS-->
 			<div class="col-md-5 company-details">
-				<div class="icon-top red-text">
-					<i class="icon-fontawesome-webfont-302"></i>
+				<div>
+					<span class="ion-android-pin red-text"></span>
 				</div>
-				PO Box 16122 Collins Street West, Victoria 8007 Australia
+				Mercury Systems, Inc.
+				<br>
+				5 Independence Way, Suite 140
+				<br>
+				Princeton, NJ 08540 USA 
 			</div>
 
 			<!-- COMPANY EMAIL-->
 			<div class="col-md-2 company-details">
-				<div class="icon-top green-text">
-					<i class="icon-fontawesome-webfont-329"></i>
+				<div>
+					<span class="ion-email green-text"></span>
 				</div>
-				contact@designlab.co
+				rtsmailsender@gmail.com
 			</div>
 
 			<!-- COMPANY PHONE NUMBER -->
 			<div class="col-md-2 company-details">
-				<div class="icon-top blue-text">
-					<i class="icon-fontawesome-webfont-101"></i>
+				<div>
+					<div class="ion-android-call blue-text"></div>
 				</div>
-				+613 0000 0000
+				+201 0000 0000
 			</div>
 
 			<!-- SOCIAL ICON AND COPYRIGHT -->
 			<div class="col-lg-3 col-sm-3 copyright">
 				<ul class="social">
-					<li><a href=""><i class="icon-facebook"></i></a></li>
-					<li><a href=""><i class="icon-twitter-alt"></i></a></li>
-					<li><a href=""><i class="icon-linkedin"></i></a></li>
-					<li><a href=""><i class="icon-behance"></i></a></li>
-					<li><a href=""><i class="icon-dribbble"></i></a></li>
+					<li><a href=""><i class="ion-social-facebook-outline"></i></a></li>
+					<li><a href=""><i class="ion-social-twitter-outline"></i></a></li>
+					<li><a href=""><i class="ion-social-linkedin-outline"></i></a></li>
+					<li><a href=""><i class="ion-social-googleplus-outline"></i></a></li>
+					<li><a href=""><i class="ion-social-rss-outline"></i></a>
 				</ul>
-				©2013 Zerif LLC
+				Mercury
 			</div>
 		</div>
 		<!-- / END CONTAINER -->

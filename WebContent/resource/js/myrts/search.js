@@ -24,6 +24,12 @@
   	  			departureDateTime: ""
   	  	};
   		
+  		/*$scope.trainSearch = {
+  	  			departureStation: $scope.departureStation,
+  	  			arrivalStation: $scope.arrivalStation,
+  	  			departureDateTime: $scope.departureDate
+  	  	};*/
+  		
   		$scope.cart = [];
   		$scope.cart.ticketsQty = 0;
   		
@@ -95,10 +101,10 @@
   		/*$scope.submitData = function (trainSearch, resultVarName) {
 		    var params = $.param({
 		    	departureStation: trainSearch.departureStation.originalObject.stationNo,
-	        	arrivalStation: trainSearch.arrivalStation.originalObject.stationNo,
+	        	arrivalStation:trainSearch.arrivalStation.originalObject.stationNo,
 	        	departureDate: new Date(trainSearch.departureDateTime).getTime()
 		    });
-		    //alert(trainSearch);
+		    alert(trainSearch);
     		$http({
     			method: "POST",
     			url: "/MyRTS/resource/schedule/get/by-stations-date",
@@ -116,12 +122,21 @@
   		};*/
   		
   		$scope.submitData = function (resultVarName) {
+  			
+  			
 		    var params = $.param({
 		    	departureStation: $scope.departureStation.originalObject.stationNo,
 	        	arrivalStation: $scope.arrivalStation.originalObject.stationNo,
 	        	departureDate: new Date($scope.departureDate).getTime()
 		    });
-		 /*   alert($scope.departureDateTime);*/
+		    
+		    $scope.trainSearch = {
+	  	  			departureStation: $scope.departureStation,
+	  	  			arrivalStation: $scope.arrivalStation,
+	  	  			departureDateTime: $scope.departureDate
+	  	  	};
+		    
+		    alert($scope.departureStation.originalObject.stationNo);
     		$http({
     			method: "POST",
     			url: "/MyRTS/resource/schedule/get/by-stations-date",

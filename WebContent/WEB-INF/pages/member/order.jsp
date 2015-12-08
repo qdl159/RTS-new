@@ -114,7 +114,7 @@
                     <h1>Hello,  ${username } <small>Order </small></h1>
                     <div class="alert alert-success alert-dismissable">
                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                        Please check you orders below! 
+                        Please check your order history below! 
                         <br />
                     </div>
                 </div>
@@ -125,9 +125,9 @@
                         <div class="panel-heading">
                             <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i>Your Orders</h3>
                         </div>
-                        <div class="panel-body">
-                            <div id="shieldui-grid1"></div>
-                        </div>
+                        	<div class="panel-body">
+                            	<div id="shieldui-grid1"></div>
+                       		</div>
                     </div>
                 </div>
             </div>

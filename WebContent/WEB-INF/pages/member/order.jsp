@@ -23,7 +23,7 @@
         jQuery(function ($) {
         	var orderData = [];
         	$.ajax({
-				url: "/MyRTS/admin/orderData",
+				url: "/MyRTS/member/orderData",
 				type: "get",
 				dataType: "json",
 				async: false,

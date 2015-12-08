@@ -298,7 +298,8 @@ public class UserController {
 
 		boolean isComplete = this.orderService.bookTickets(cs.getCartTickets(),
 				order);
-
+		if(isComplete)
+			cs.getCartTickets().clear();
 		order.setUser(null);
 		return order;
 	}

@@ -189,13 +189,13 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "/activate/{activation}", method = RequestMethod.GET)
-	public ModelAndView activate(BindingResult result, @PathVariable String activation) {
+	public ModelAndView activate(@PathVariable String activation) {
 		ModelAndView mav = new ModelAndView();
 
 		User user = this.customUserDetailsService.activeUser(activation);
 		if (user == null) {
 			mav.setViewName("/hello2");
-			mav.addObject("title", "Activation code expired!!");
+			mav.addObject("title", "Activation code expired!");
 			return mav;
 		}
 		mav.setViewName("/hello2");

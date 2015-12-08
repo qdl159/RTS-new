@@ -85,16 +85,16 @@ public class MailUtil {
 			message.setFrom(new InternetAddress(from));
 			message.addRecipient(Message.RecipientType.TO,
 			new InternetAddress(to));
-			message.setSubject("WelCome to Railway System!");
+			message.setSubject("WelCome to Railway System Password Reset Center!");
 			// Create the message part
 			BodyPart welcome = new MimeBodyPart();
-			welcome.setText("Hi, Welcome To Railway System!");
+			welcome.setText("Hi, Welcome To Railway System Password Reset Center!");
 
 			BodyPart activation = new MimeBodyPart();
 			activation.setText("Please click the following link to reset your password:");
 			
 			BodyPart link = new MimeBodyPart();
-			link.setText("http://localhost:8080/MyRTS/register.html");
+			link.setText("http://localhost:8080/MyRTS/resetpassword/" + user.getPassword());
 			
 		
 			

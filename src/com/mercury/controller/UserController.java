@@ -111,6 +111,8 @@ public class UserController {
 				+ CustomUserDetailsService.currentUserDetails().getUsername()
 				+ "! welcome to dashboard");
 		mav.addObject("username", this.getUser().getEmail());
+		mav.addObject("creditcard",this.getCreditCardsByUserId(this.getUser().getUserId()).size());
+		mav.addObject("orders", this.getOrdersByUserId(this.getUser().getUserId()).size());
 		return mav;
 	}
 
@@ -173,14 +175,27 @@ public class UserController {
 		return mav;
 	}
 
+	@RequestMapping(value = "/resetpassword/reset", method = RequestMethod.GET)
+	public ModelAndView resetpassword(String email) {
+		System.out.println(email);
+		ModelAndView mav = new ModelAndView();
+		User user = this.customUserDetailsService.findbyemail(email);
+		mav.setViewName("/hello2");
+		user.setEnable(false);
+		mav.addObject("title", "This is reset password page.");
+		MailUtil.sendpasswordresetMail(user);
+		System.out.println(user);
+		return mav;
+	}
+	
 	@RequestMapping(value = "/activate/{activation}", method = RequestMethod.GET)
-	public ModelAndView activate(@PathVariable String activation) {
+	public ModelAndView activate(BindingResult result, @PathVariable String activation) {
 		ModelAndView mav = new ModelAndView();
 
 		User user = this.customUserDetailsService.activeUser(activation);
 		if (user == null) {
 			mav.setViewName("/hello2");
-			mav.addObject("title", "Activation code expired!");
+			mav.addObject("title", "Activation code expired!!");
 			return mav;
 		}
 		mav.setViewName("/hello2");
@@ -193,6 +208,27 @@ public class UserController {
 			user.geneateActivationCode();
 		}
 		this.customUserDetailsService.updateUser(user);
+		System.out.println(user);
+		return mav;
+	}
+
+	@RequestMapping(value = "/resetpassword/reset/{md5}", method = {RequestMethod.GET, RequestMethod.POST})
+	public ModelAndView resetpassword1(@PathVariable String md5, String password) throws Exception {
+		ModelAndView mav = new ModelAndView();
+		System.out.println(md5);
+		User user = this.customUserDetailsService.findbypassword(md5);
+		if (user == null) {
+			mav.setViewName("/hello2");
+			mav.addObject("title", "User not exsit!");
+			return mav;
+		}
+		System.out.println(password);
+		user.setPassword(user.MD5Hashing(password));
+		this.customUserDetailsService.updateUser(user);
+		mav.setViewName("/login");
+		mav.addObject("title", "Congratulations, " + user.getEmail()
+				+ "! Successfully change your password!");
+		
 		System.out.println(user);
 		return mav;
 	}
@@ -219,8 +255,8 @@ public class UserController {
 		mav.addObject("title", "Hello, "
 				+ CustomUserDetailsService.currentUserDetails().getUsername());
 		mav.addObject("username", this.getUser().getEmail());
-		// mav.addObject("orderHistory",
-		// this.getOrdersByUserId(this.getUser().getUserId()));
+		mav.addObject("orderHistory",
+		this.getOrdersByUserId(this.getUser().getUserId()));
 		return mav;
 	}
 
@@ -232,8 +268,8 @@ public class UserController {
 		mav.addObject("title", "Hello, "
 				+ CustomUserDetailsService.currentUserDetails().getUsername());
 		mav.addObject("username", this.getUser().getEmail());
-		// mav.addObject("orderHistory",
-		// this.getOrdersByUserId(this.getUser().getUserId()));
+		mav.addObject("orderHistory",
+		this.getOrdersByUserId(this.getUser().getUserId()));
 		return mav;
 	}
 	

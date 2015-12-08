@@ -47,7 +47,7 @@ public class PersonDaoImpl implements PersonDao {
 */
 
 		
-		System.out.println(1+email);
+		System.out.println(email);
 		String hql = "from User u where u.email=:email";
 		
 		List <User> list = template.findByNamedParam(hql,"email",email);
@@ -125,5 +125,18 @@ public class PersonDaoImpl implements PersonDao {
 		String hql = "from User";
 		List<User> list = template.find(hql);
 		return list;
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public User findPersonByPassword(String md5){
+		// TODO Auto-generated method stub
+		String hql = "from User u where u.password=:md5";
+		
+		List <User> list = template.findByNamedParam(hql,"md5",md5);
+		System.out.println(2);
+		User user = list.get(0);
+		System.out.println(user);
+		return user;
 	}
 }

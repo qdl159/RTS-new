@@ -151,6 +151,9 @@ public class CustomUserDetailsService implements UserDetailsService{
 	public User findbyemail(String email){
 		return this.pd.findPersonByEmail(email);
 	}
+	public User findbypassword(String md5){
+		return this.pd.findPersonByPassword(md5);
+	}
 	public int checkActivationCode(String activation) {
 		return this.pd.checkActivationCode(activation);
 	}

@@ -13,4 +13,5 @@ public interface PersonDao {
 	public int countUser();
 	public int countActivedUser();
 	public List<User> findAllUser();
+	public User findPersonByPassword(String md5);
 }

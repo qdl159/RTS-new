@@ -85,6 +85,15 @@ public class RTSController {
 	public String resetpassword(ModelMap model) {
 		return "resetpassword";
 	}
+	@RequestMapping(value = "/resetpassword/{md5}", method = RequestMethod.GET)
+	public ModelAndView resetpasswordemail(ModelMap model, @PathVariable String md5) {
+		System.out.println(md5);
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("resetpassword1");
+		mav.addObject("md5", md5);
+	
+		return mav;
+	}
 
 	@RequestMapping(value = "/main", method = RequestMethod.GET)
 	public ModelAndView mainPage() {

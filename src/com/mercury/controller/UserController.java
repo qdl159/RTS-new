@@ -189,7 +189,7 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "/activate/{activation}", method = RequestMethod.GET)
-	public ModelAndView activate(BindingResult result, @PathVariable String activation) {
+	public ModelAndView activate(@PathVariable String activation) {
 		ModelAndView mav = new ModelAndView();
 
 		User user = this.customUserDetailsService.activeUser(activation);

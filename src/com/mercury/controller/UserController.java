@@ -278,6 +278,8 @@ public class UserController {
 	@RequestMapping(value = "/resource/order/submit/", method = RequestMethod.POST)
 	public @ResponseBody
 	Order memberSubmitOrder(HttpServletRequest request, HttpSession session) {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("MyRTS/member/order");
 		String firstName = (String) request.getParameter("firstName");
 		String lastName = (String) request.getParameter("lastName");
 		String cardNo = (String) request.getParameter("cardNo");

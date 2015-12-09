@@ -272,10 +272,12 @@
 							</tbody>
 
 						</table>
+						
 						<button type="submit"
 							ng-disabled="isSubmitOrder || (!checkCard(cc.cardNo))"
 							class="col-sm-3 col-sm-offset-8 btn btn-primary btn-md"
-							data-toggle="modal" data-target="#myModal">Submit order</button>
+							data-toggle="modal" data-target="#myModal"
+							onclick="window.location.href='/MyRTS/member/order.html'">Submit order</button>
 					</form>
 				</div>
 		</div>

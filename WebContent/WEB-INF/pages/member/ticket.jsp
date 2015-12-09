@@ -195,7 +195,10 @@
 			      		</tbody>
 					</table>
 					<div id="divAddToCart" ng-show="canShowAddToCart">
-						<a href="checkout.html"><button type="submit" class="col-sm-2 col-sm-offset-8 btn btn-primary btn-md"  ng-disabled="fmAddCart.$invalid || isAddingTickets">Checkout</button></a>
+						<button type="submit" 
+						class="col-sm-2 col-sm-offset-8 btn btn-primary btn-md"  
+						ng-disabled="fmAddCart.$invalid || isAddingTickets"
+						onclick="window.location.href='/MyRTS/member/checkout.html'">Checkout</button>
 					</div>
 				</form>
 			</div>

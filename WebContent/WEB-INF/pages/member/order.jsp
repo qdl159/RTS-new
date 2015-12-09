@@ -49,8 +49,9 @@
                 },
                 columns: [
                     { field: "orderNo", title: "OrderNumber" },
-            		{ field: "date", title: "OrderDate" },
+            		{ field: "orderDate", title: "OrderDate" },
                     { field: "creditCardNo", title: "CreditCardNumber"},
+                    { field: "orderStatus", title: "OrderStatus"} 
                 ]
             });
         });

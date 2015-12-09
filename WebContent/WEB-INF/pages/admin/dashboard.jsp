@@ -325,12 +325,12 @@
                     toggle: false
                 },
                 columns: [
-                    { field: "orderNo", title: "OrderNumber" },
-                    { field: "user.email", title: "Email" },
-                    { field: "user.userId", title: "UserID"},
-            		{ field: "date", title: "OrderDate" },
-                    { field: "creditCardNo", title: "CreditCardNumber"},
-                    { field: "status", title: "OrderStatus"} 
+                          { field: "orderNo", title: "OrderNumber" },
+                          { field: "user.email", title: "Email" },
+                          { field: "user.userId", title: "UserID"},
+                  		  { field: "orderDate", title: "OrderDate" },
+                          { field: "creditCardNo", title: "CreditCardNumber"},
+                          { field: "orderStatus", title: "OrderStatus"} 
                 ]
             });
         });

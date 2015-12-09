@@ -41,7 +41,7 @@ public class MailUtil {
 			activation.setText("Please click the following link to activate your account:");
 			
 			BodyPart link = new MimeBodyPart();
-			link.setText("http://localhost:8080/MyRTS/activate/" + user.getActivation());
+			link.setText("http://192.168.1.18:8080/MyRTS/activate/" + user.getActivation());
 			
 		
 			
@@ -94,7 +94,7 @@ public class MailUtil {
 			activation.setText("Please click the following link to reset your password:");
 			
 			BodyPart link = new MimeBodyPart();
-			link.setText("http://localhost:8080/MyRTS/resetpassword/" + user.getPassword());
+			link.setText("http://192.168.1.18:8080/MyRTS/resetpassword/" + user.getPassword());
 			
 		
 			

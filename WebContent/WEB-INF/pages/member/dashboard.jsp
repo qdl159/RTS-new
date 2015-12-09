@@ -190,9 +190,9 @@
                     { field: "orderNo", title: "OrderNumber" },
                     /* { field: "user.email", title: "Email" }, */
                     /* { field: "user.userId", title: "UserID"}, */
-            		{ field: "date", title: "OrderDate" },
+            		{ field: "orderDate", title: "OrderDate" },
                     { field: "creditCardNo", title: "CreditCardNumber"},
-                    /* { field: "status", title: "OrderStatus"}  */
+                    { field: "orderStatus", title: "OrderStatus"}  
                 ]
             });
         });

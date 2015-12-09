@@ -17,6 +17,7 @@
 	<mvc:resources location="/resource/" mapping="/resource/**"/>
 	<mvc:resources location="/images/" mapping="/images/**"/>
 	<mvc:resources location="/activate/" mapping="/activate/**"/>
+	<mvc:resources location="/resetpassword/" mapping="/resetpassword/**"/>
     <bean id="viewResolver"
         class="org.springframework.web.servlet.view.UrlBasedViewResolver">
         <property name="viewClass"

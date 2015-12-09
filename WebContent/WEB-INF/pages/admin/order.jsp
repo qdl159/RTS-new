@@ -242,7 +242,7 @@
 					orderData = data;
 				}
 			});
-            var performance = [12, 43, 34, 22, 12, 33, 4, 17, 22, 34, 54, 67],
+            /* var performance = [12, 43, 34, 22, 12, 33, 4, 17, 22, 34, 54, 67],
                 visits = [123, 323, 443, 32],
                 budget = [23, 19, 11, 134, 242, 352, 435, 22, 637, 445, 555, 57],
                 sales = [11, 9, 31, 34, 42, 52, 35, 22, 37, 45, 55, 57];
@@ -302,7 +302,7 @@
                     collectionAlias: "sales",
                     data: sales
                 }]
-            });
+            }); */
 			
             $("#shieldui-grid1").shieldGrid({
                 dataSource: {
@@ -324,9 +324,9 @@
                     { field: "orderNo", title: "OrderNumber" },
                     { field: "user.email", title: "Email" },
                     { field: "user.userId", title: "UserID"},
-            		{ field: "date", title: "OrderDate" },
+            		{ field: "orderDate", title: "OrderDate" },
                     { field: "creditCardNo", title: "CreditCardNumber"},
-                    { field: "status", title: "OrderStatus"} 
+                    { field: "orderStatus", title: "OrderStatus"} 
                 ]
             });
         });

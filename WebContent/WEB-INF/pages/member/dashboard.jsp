@@ -132,7 +132,7 @@
                 <div class="col-lg-12">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
-                            <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i>Your Orders</h3>
+                            <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i>Orders History</h3>
                         </div>
                         <div class="panel-body">
                             <div id="shieldui-grid1"></div>
@@ -156,6 +156,7 @@
     -->
     <script type="text/javascript">
         jQuery(function ($) {
+        	strDate = new Date();
         	var orderData = [];
         	$.ajax({
 				url: "/MyRTS/member/orderData",
@@ -164,6 +165,10 @@
 				async: false,
 				success: function(data) {
 					orderData = data;
+
+					for ( var i = 0; i < orderData.length; i++) {
+						orderData[i].orderDate = new Date(orderData[i].orderDate);
+					}
 				}
 			});
             var performance = [12, 43, 34, 22, 12, 33, 4, 17, 22, 34, 54, 67],
@@ -192,9 +197,16 @@
                     /* { field: "user.userId", title: "UserID"}, */
             		{ field: "orderDate", title: "OrderDate" },
                     { field: "creditCardNo", title: "CreditCardNumber"},
-                    { field: "orderStatus", title: "OrderStatus"}  
+                 /*    { field: "orderStatus", title: "OrderStatus"} */  
                 ]
             });
+       /*      $(".sui-cell:parent:last-of-type").html(function(){
+            	if($(this).html()==="2")
+            		return "cancel";
+            	if($(this).html()==="1")
+            		return "success";
+            	else return "pending";
+            }); */
         });
     </script>
     

@@ -107,8 +107,8 @@
 					<div class="navbar-header responsive-logo">
 						
 						<!-- <div class="navbar-brand"> -->
-						<img src="/MyRTS/resource/image/trainlogo.jpg" alt="rts"
-							style="left: 0px; width: 70px; height: 70px">
+						<img src="/MyRTS/resource/image/logo2.png" alt="rts"
+							style="left: 0px; height: 70px">
 						<!-- </div> -->
 					</div>
 					<nav class="navbar-collapse collapse" role="navigation"

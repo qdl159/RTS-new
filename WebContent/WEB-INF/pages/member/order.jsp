@@ -21,6 +21,7 @@
     <script type="text/javascript" src="http://www.prepbootstrap.com/Content/js/gridData.js"></script>
      <script type="text/javascript">
         jQuery(function ($) {
+        	strDate = new Date();
         	var orderData = [];
         	$.ajax({
 				url: "/MyRTS/member/orderData",
@@ -29,6 +30,12 @@
 				async: false,
 				success: function(data) {
 					orderData = data;
+					
+
+					for ( var i = 0; i < orderData.length; i++) {
+						orderData[i].orderDate = new Date(orderData[i].orderDate);
+					}
+					
 				}
 			});
             $("#shieldui-grid1").shieldGrid({
@@ -53,6 +60,13 @@
                     { field: "creditCardNo", title: "CreditCardNumber"},
                     { field: "orderStatus", title: "OrderStatus"} 
                 ]
+            });
+            $(".sui-cell:parent:last-of-type").html(function(){
+            	if($(this).html()==="2")
+            		return "cancel";
+            	if($(this).html()==="1")
+            		return "success";
+            	else return "pending";
             });
         });
     </script>

@@ -11,13 +11,14 @@
     <link rel="stylesheet" type="text/css" href="<c:url value="/resource/newSource/bootstrap/css/bootstrap.min.css"/>">
     <link rel="stylesheet" type="text/css" href="<c:url value="/resource/newSource/font-awesome/css/font-awesome.min.css" />">
     <link rel="stylesheet" type="text/css" href="<c:url value="/resource/newSource/css/local.css" />">
-
+   
      <script type="text/javascript" src="<c:url value="/resource/newSource/js/jquery-1.10.2.min.js"/>"></script>
     <script type="text/javascript" src="<c:url value="/resource/newSource/bootstrap/js/bootstrap.min.js"/>"></script>
     
      <link rel="stylesheet" type="text/css" href="http://www.shieldui.com/shared/components/latest/css/light-bootstrap/all.min.css" />
     <script type="text/javascript" src="http://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
     <script type="text/javascript" src="http://www.prepbootstrap.com/Content/js/gridData.js"></script>
+    
 </head>
 <body>
 <div id="wrapper">
@@ -213,8 +214,8 @@
                     </div>
                 </div>
             </div> -->
-            <div class="row">
-                <div class="col-lg-12">
+            <div>
+                <div   ng-app="orderModule" ng-controller="OrderController" class="col-lg-12">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
                             <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i>Total Orders</h3>
@@ -231,7 +232,9 @@
 </div>
 
  <script type="text/javascript">
+ 
         jQuery(function ($) {
+        	strDate = new Date();
         	var orderData = [];
         	$.ajax({
 				url: "/MyRTS/admin/orderData",
@@ -240,6 +243,10 @@
 				async: false,
 				success: function(data) {
 					orderData = data;
+
+					for ( var i = 0; i < orderData.length; i++) {
+						orderData[i].orderDate = new Date(orderData[i].orderDate);
+					}
 				}
 			});
             /* var performance = [12, 43, 34, 22, 12, 33, 4, 17, 22, 34, 54, 67],
@@ -328,6 +335,14 @@
                     { field: "creditCardNo", title: "CreditCardNumber"},
                     { field: "orderStatus", title: "OrderStatus"} 
                 ]
+            });
+            
+            $(".sui-cell:parent:last-of-type").html(function(){
+            	if($(this).html()==="2")
+            		return "cancel";
+            	if($(this).html()==="1")
+            		return "success";
+            	else return "pending";
             });
         });
     </script>

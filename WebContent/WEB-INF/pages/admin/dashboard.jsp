@@ -19,6 +19,7 @@
     <link rel="stylesheet" type="text/css" href="http://www.shieldui.com/shared/components/latest/css/light-bootstrap/all.min.css" />
     <script type="text/javascript" src="http://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
     <script type="text/javascript" src="http://www.prepbootstrap.com/Content/js/gridData.js"></script>
+
    	<style>
     	.text-right {
     		float: none;
@@ -215,6 +216,7 @@
     -->
     <script type="text/javascript">
         jQuery(function ($) {
+        	strDate = new Date();
         	var orderData = [];
         	$.ajax({
 				url: "/MyRTS/admin/orderData",
@@ -223,6 +225,10 @@
 				async: false,
 				success: function(data) {
 					orderData = data;
+
+					for ( var i = 0; i < orderData.length; i++) {
+						orderData[i].orderDate = new Date(orderData[i].orderDate);
+					}
 				}
 			});
         	trains = ${trains};
@@ -234,6 +240,10 @@
         	train2 = ${train2};
         	train3 = ${train3};
         	train4 = ${train4};
+        	train5 = ${train5};
+        	train6 = ${train6};
+        	train7 = ${train7};
+        	
             var performance = [12, 43, 34, 22, 12, 33, 4, 17, 22, 34, 54, 67],
                 visit1 = [actived],
                 visit2 = [newuser],
@@ -291,7 +301,10 @@
                         ["train1", train1],
                         ["train2", train2],
                         { collectionAlias: "train3", y: train3, sliced: true },
-                        ["train4", train4]
+                        { collectionAlias: "train5", y: train5, sliced: true },
+                        ["train4", train4],
+                        ["train6", train6],
+                        ["train7", train7],
                        
                     ]
                 }]
@@ -332,6 +345,13 @@
                           { field: "creditCardNo", title: "CreditCardNumber"},
                           { field: "orderStatus", title: "OrderStatus"} 
                 ]
+            });
+            $(".sui-cell:parent:last-of-type").html(function(){
+            	if($(this).html()==="2")
+            		return "cancel";
+            	if($(this).html()==="1")
+            		return "success";
+            	else return "pending";
             });
         });
     </script>
